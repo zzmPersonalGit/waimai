@@ -1,0 +1,179 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaiorder.dao.CartDao">
+
+    <resultMap type="com.example.waimaiorder.entity.Cart" id="CartMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="shopId" column="shop_id" jdbcType="INTEGER"/>
+        <result property="totalMoney" column="total_money" jdbcType="NUMERIC"/>
+        <result property="discountMoney" column="discount_money" jdbcType="NUMERIC"/>
+        <result property="payMoney" column="pay_money" jdbcType="NUMERIC"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CartMap">
+        select id,
+               user_id,
+               shop_id,
+               total_money,
+               discount_money,
+               pay_money,
+               add_time
+        from cart
+        where id = #{id}
+    </select>
+
+    <!--查询指定数据-->
+    <select id="queryByUidAndShopId" resultMap="CartMap">
+        select id,
+               user_id,
+               shop_id,
+               total_money,
+               discount_money,
+               pay_money,
+               add_time
+        from cart
+        where user_id = #{userid}
+          and shop_id = #{shopid}
+    </select>
+
+    <!--查询所有数据-->
+    <select id="queryALL" resultMap="CartMap">
+        select id,
+               user_id,
+               shop_id,
+               total_money,
+               discount_money,
+               pay_money,
+               add_time
+        from cart
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CartMap">
+        select
+        id, user_id, shop_id, total_money, discount_money, pay_money, add_time
+        from cart
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="totalMoney != null">
+                and total_money = #{totalMoney}
+            </if>
+            <if test="discountMoney != null">
+                and discount_money = #{discountMoney}
+            </if>
+            <if test="payMoney != null">
+                and pay_money = #{payMoney}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from cart
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="totalMoney != null">
+                and total_money = #{totalMoney}
+            </if>
+            <if test="discountMoney != null">
+                and discount_money = #{discountMoney}
+            </if>
+            <if test="payMoney != null">
+                and pay_money = #{payMoney}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into cart(user_id, shop_id, total_money, discount_money, pay_money, add_time)
+        values (#{userId}, #{shopId}, #{totalMoney}, #{discountMoney}, #{payMoney}, #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into cart(user_id, shop_id, total_money, discount_money, pay_money, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userId}, #{entity.shopId}, #{entity.totalMoney}, #{entity.discountMoney}, #{entity.payMoney},
+            #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into cart(user_id, shop_id, total_money, discount_money, pay_money, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userId}, #{entity.shopId}, #{entity.totalMoney}, #{entity.discountMoney}, #{entity.payMoney},
+            #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        user_id = values(user_id),
+        shop_id = values(shop_id),
+        total_money = values(total_money),
+        discount_money = values(discount_money),
+        pay_money = values(pay_money),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update cart
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="shopId != null">
+                shop_id = #{shopId},
+            </if>
+            <if test="totalMoney != null">
+                total_money = #{totalMoney},
+            </if>
+            <if test="discountMoney != null">
+                discount_money = #{discountMoney},
+            </if>
+            <if test="payMoney != null">
+                pay_money = #{payMoney},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from cart
+        where id = #{id}
+    </delete>
+
+</mapper>
+

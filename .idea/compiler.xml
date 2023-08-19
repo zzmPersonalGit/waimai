@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<project version="4">
+  <component name="CompilerConfiguration">
+    <annotationProcessing>
+      <profile default="true" name="Default" enabled="true" />
+      <profile name="Maven default annotation processors profile" enabled="true">
+        <sourceOutputDir name="target/generated-sources/annotations" />
+        <sourceTestOutputDir name="target/generated-test-sources/test-annotations" />
+        <outputRelativeToContentRoot value="true" />
+        <module name="waimai-shop" />
+        <module name="waimai-commodity" />
+        <module name="waimai-admin" />
+        <module name="waimai-pay" />
+        <module name="waimai-user" />
+        <module name="waimai-order" />
+        <module name="waimai-deliver" />
+      </profile>
+    </annotationProcessing>
+  </component>
+  <component name="JavacSettings">
+    <option name="ADDITIONAL_OPTIONS_OVERRIDE">
+      <module name="waimai-admin" options="-parameters" />
+      <module name="waimai-commodity" options="-parameters" />
+      <module name="waimai-deliver" options="-parameters" />
+      <module name="waimai-order" options="-parameters" />
+      <module name="waimai-pay" options="-parameters" />
+      <module name="waimai-shop" options="-parameters" />
+      <module name="waimai-user" options="-parameters" />
+    </option>
+  </component>
+</project>

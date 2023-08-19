@@ -1,0 +1,282 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaiuser.dao.UserAddressDao">
+
+    <resultMap type="com.example.waimaiuser.entity.UserAddress" id="UserAddressMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="VARCHAR"/>
+        <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+        <result property="province" column="province" jdbcType="VARCHAR"/>
+        <result property="city" column="city" jdbcType="VARCHAR"/>
+        <result property="district" column="district" jdbcType="VARCHAR"/>
+        <result property="longitude" column="longitude" jdbcType="VARCHAR"/>
+        <result property="latitude" column="latitude" jdbcType="VARCHAR"/>
+        <result property="address" column="address" jdbcType="VARCHAR"/>
+        <result property="street" column="street" jdbcType="VARCHAR"/>
+        <result property="tag" column="tag" jdbcType="INTEGER"/>
+        <result property="defaultaddress" column="defaultAddress" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+        <result property="editTime" column="edit_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserAddressMap">
+        select id,
+               user_id,
+               username,
+               gender,
+               mobile,
+               province,
+               city,
+               district,
+               longitude,
+               latitude,
+               address,
+               street,
+               tag,
+               defaultAddress,
+               status,
+               add_time,
+               edit_time
+        from user_address
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserAddressMap">
+        select
+        id, user_id, username, gender, mobile, province, city, district, longitude, latitude, address, street, tag,
+        defaultAddress, status, add_time, edit_time
+        from user_address
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="gender != null and gender != ''">
+                and gender = #{gender}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="province != null and province != ''">
+                and province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+            <if test="district != null and district != ''">
+                and district = #{district}
+            </if>
+            <if test="longitude != null and longitude != ''">
+                and longitude = #{longitude}
+            </if>
+            <if test="latitude != null and latitude != ''">
+                and latitude = #{latitude}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="street != null and street != ''">
+                and street = #{street}
+            </if>
+            <if test="tag != null">
+                and tag = #{tag}
+            </if>
+            <if test="defaultaddress != null">
+                and defaultAddress = #{defaultaddress}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+            <if test="editTime != null">
+                and edit_time = #{editTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from user_address
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="gender != null and gender != ''">
+                and gender = #{gender}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="province != null and province != ''">
+                and province = #{province}
+            </if>
+            <if test="city != null and city != ''">
+                and city = #{city}
+            </if>
+            <if test="district != null and district != ''">
+                and district = #{district}
+            </if>
+            <if test="longitude != null and longitude != ''">
+                and longitude = #{longitude}
+            </if>
+            <if test="latitude != null and latitude != ''">
+                and latitude = #{latitude}
+            </if>
+            <if test="address != null and address != ''">
+                and address = #{address}
+            </if>
+            <if test="street != null and street != ''">
+                and street = #{street}
+            </if>
+            <if test="tag != null">
+                and tag = #{tag}
+            </if>
+            <if test="defaultaddress != null">
+                and defaultAddress = #{defaultaddress}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+            <if test="editTime != null">
+                and edit_time = #{editTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into user_address(user_id, username, gender, mobile, province, city, district, longitude, latitude,
+                                 address, street, tag, defaultAddress, status, add_time, edit_time)
+        values (#{userId}, #{username}, #{gender}, #{mobile}, #{province}, #{city}, #{district}, #{longitude},
+                #{latitude}, #{address}, #{street}, #{tag}, #{defaultaddress}, #{status}, #{addTime}, #{editTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into user_address(user_id, username, gender, mobile, province, city, district, longitude, latitude,
+        address, street, tag, defaultAddress, status, add_time, edit_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userId}, #{entity.username}, #{entity.gender}, #{entity.mobile}, #{entity.province},
+            #{entity.city}, #{entity.district}, #{entity.longitude}, #{entity.latitude}, #{entity.address},
+            #{entity.street}, #{entity.tag}, #{entity.defaultaddress}, #{entity.status}, #{entity.addTime},
+            #{entity.editTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into user_address(user_id, username, gender, mobile, province, city, district, longitude, latitude,
+        address, street, tag, defaultAddress, status, add_time, edit_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.userId}, #{entity.username}, #{entity.gender}, #{entity.mobile}, #{entity.province},
+            #{entity.city}, #{entity.district}, #{entity.longitude}, #{entity.latitude}, #{entity.address},
+            #{entity.street}, #{entity.tag}, #{entity.defaultaddress}, #{entity.status}, #{entity.addTime},
+            #{entity.editTime})
+        </foreach>
+        on duplicate key update
+        user_id = values(user_id),
+        username = values(username),
+        gender = values(gender),
+        mobile = values(mobile),
+        province = values(province),
+        city = values(city),
+        district = values(district),
+        longitude = values(longitude),
+        latitude = values(latitude),
+        address = values(address),
+        street = values(street),
+        tag = values(tag),
+        defaultAddress = values(defaultAddress),
+        status = values(status),
+        add_time = values(add_time),
+        edit_time = values(edit_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update user_address
+        <set>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="gender != null and gender != ''">
+                gender = #{gender},
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile},
+            </if>
+            <if test="province != null and province != ''">
+                province = #{province},
+            </if>
+            <if test="city != null and city != ''">
+                city = #{city},
+            </if>
+            <if test="district != null and district != ''">
+                district = #{district},
+            </if>
+            <if test="longitude != null and longitude != ''">
+                longitude = #{longitude},
+            </if>
+            <if test="latitude != null and latitude != ''">
+                latitude = #{latitude},
+            </if>
+            <if test="address != null and address != ''">
+                address = #{address},
+            </if>
+            <if test="street != null and street != ''">
+                street = #{street},
+            </if>
+            <if test="tag != null">
+                tag = #{tag},
+            </if>
+            <if test="defaultaddress != null">
+                defaultAddress = #{defaultaddress},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+            <if test="editTime != null">
+                edit_time = #{editTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from user_address
+        where id = #{id}
+    </delete>
+
+</mapper>
+

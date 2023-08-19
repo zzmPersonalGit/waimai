@@ -1,0 +1,162 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaiorder.dao.OrderCommentDao">
+
+    <resultMap type="com.example.waimaiorder.entity.OrderComment" id="OrderCommentMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="orderId" column="order_id" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="content" column="content" jdbcType="VARCHAR"/>
+        <result property="images" column="images" jdbcType="VARCHAR"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+        <result property="path" column="path" jdbcType="VARCHAR"/>
+        <result property="numPraise" column="num_praise" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="reCommentId" column="re_comment_id" jdbcType="INTEGER"/>
+        <result property="likeIds" column="like_ids" jdbcType="VARCHAR"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OrderCommentMap">
+        select id,
+               order_id,
+               user_id,
+               content,
+               images,
+               add_time,
+               path,
+               num_praise,
+               status,
+               re_comment_id,
+               like_ids
+        from order_comment
+        where id = #{id}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from order_comment
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderId != null and orderId != ''">
+                and order_id = #{orderId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="content != null and content != ''">
+                and content = #{content}
+            </if>
+            <if test="images != null and images != ''">
+                and images = #{images}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+            <if test="path != null and path != ''">
+                and path = #{path}
+            </if>
+            <if test="numPraise != null">
+                and num_praise = #{numPraise}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="reCommentId != null">
+                and re_comment_id = #{reCommentId}
+            </if>
+            <if test="likeIds != null and likeIds != ''">
+                and like_ids = #{likeIds}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into order_comment(order_id, user_id, content, images, add_time, path, num_praise, status, re_comment_id,
+                                  like_ids)
+        values (#{orderId}, #{userId}, #{content}, #{images}, #{addTime}, #{path}, #{numPraise}, #{status},
+                #{reCommentId}, #{likeIds})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into order_comment(order_id, user_id, content, images, add_time, path, num_praise, status, re_comment_id,
+        like_ids)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.orderId}, #{entity.userId}, #{entity.content}, #{entity.images}, #{entity.addTime},
+            #{entity.path}, #{entity.numPraise}, #{entity.status}, #{entity.reCommentId}, #{entity.likeIds})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into order_comment(order_id, user_id, content, images, add_time, path, num_praise, status, re_comment_id,
+        like_ids)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.orderId}, #{entity.userId}, #{entity.content}, #{entity.images}, #{entity.addTime},
+            #{entity.path}, #{entity.numPraise}, #{entity.status}, #{entity.reCommentId}, #{entity.likeIds})
+        </foreach>
+        on duplicate key update
+        order_id = values(order_id),
+        user_id = values(user_id),
+        content = values(content),
+        images = values(images),
+        add_time = values(add_time),
+        path = values(path),
+        num_praise = values(num_praise),
+        status = values(status),
+        re_comment_id = values(re_comment_id),
+        like_ids = values(like_ids)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update order_comment
+        <set>
+            <if test="orderId != null and orderId != ''">
+                order_id = #{orderId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="content != null and content != ''">
+                content = #{content},
+            </if>
+            <if test="images != null and images != ''">
+                images = #{images},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+            <if test="path != null and path != ''">
+                path = #{path},
+            </if>
+            <if test="numPraise != null">
+                num_praise = #{numPraise},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="reCommentId != null">
+                re_comment_id = #{reCommentId},
+            </if>
+            <if test="likeIds != null and likeIds != ''">
+                like_ids = #{likeIds},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from order_comment
+        where id = #{id}
+    </delete>
+
+</mapper>
+

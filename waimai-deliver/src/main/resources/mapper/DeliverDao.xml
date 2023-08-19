@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaideliver.mapper.DeliverDao">
+
+    <resultMap type="com.example.waimaideliver.entity.Deliver" id="DeliverMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="score" column="score" jdbcType="INTEGER"/>
+        <result property="monthTaskNum" column="month_task_num" jdbcType="INTEGER"/>
+        <result property="totalTaskNum" column="total_task_num" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="DeliverMap">
+        select id,
+               username,
+               mobile,
+               password,
+               score,
+               month_task_num,
+               total_task_num,
+               status,
+               add_time
+        from deliver
+        where id = #{id}
+    </select>
+
+    <!--通过username查询单个-->
+    <select id="queryByUsername" resultMap="DeliverMap">
+        select id,
+               username,
+               mobile,
+               password,
+               score,
+               month_task_num,
+               total_task_num,
+               status,
+               add_time
+        from deliver
+        where username = #{username}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="DeliverMap">
+        select
+        id, username, mobile, password, score, month_task_num, total_task_num, status, add_time
+        from deliver
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="score != null">
+                and score = #{score}
+            </if>
+            <if test="monthTaskNum != null">
+                and month_task_num = #{monthTaskNum}
+            </if>
+            <if test="totalTaskNum != null">
+                and total_task_num = #{totalTaskNum}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from deliver
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="score != null">
+                and score = #{score}
+            </if>
+            <if test="monthTaskNum != null">
+                and month_task_num = #{monthTaskNum}
+            </if>
+            <if test="totalTaskNum != null">
+                and total_task_num = #{totalTaskNum}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+    <!--通过手机号查询-->
+    <select id="queryByMobile" resultMap="DeliverMap">
+        select id,
+               username,
+               mobile,
+               password,
+               score,
+               month_task_num,
+               total_task_num,
+               status,
+               add_time
+        from deliver
+        where mobile = #{mobile}
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into deliver(username, mobile, password, score, month_task_num, total_task_num, status, add_time)
+        values (#{username}, #{mobile}, #{password}, #{score}, #{monthTaskNum}, #{totalTaskNum}, #{status}, #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into deliver(username, mobile, password, score, month_task_num, total_task_num, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.username}, #{entity.mobile}, #{entity.password}, #{entity.score}, #{entity.monthTaskNum},
+            #{entity.totalTaskNum}, #{entity.status}, #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into deliver(username, mobile, password, score, month_task_num, total_task_num, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.username}, #{entity.mobile}, #{entity.password}, #{entity.score}, #{entity.monthTaskNum},
+            #{entity.totalTaskNum}, #{entity.status}, #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        username = values(username),
+        mobile = values(mobile),
+        password = values(password),
+        score = values(score),
+        month_task_num = values(month_task_num),
+        total_task_num = values(total_task_num),
+        status = values(status),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update deliver
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="score != null">
+                score = #{score},
+            </if>
+            <if test="monthTaskNum != null">
+                month_task_num = #{monthTaskNum},
+            </if>
+            <if test="totalTaskNum != null">
+                total_task_num = #{totalTaskNum},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from deliver
+        where id = #{id}
+    </delete>
+
+</mapper>
+

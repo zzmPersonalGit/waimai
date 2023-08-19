@@ -1,0 +1,231 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaiuser.dao.UserDao">
+
+    <resultMap type="com.example.waimaiuser.entity.User" id="UserMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="openId" column="open_id" jdbcType="VARCHAR"/>
+        <result property="wallet" column="wallet" jdbcType="INTEGER"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="truename" column="truename" jdbcType="VARCHAR"/>
+        <result property="gender" column="gender" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="UserMap">
+        select id,
+               username,
+               mobile,
+               password,
+               open_id,
+               wallet,
+               email,
+               truename,
+               gender,
+               status,
+               add_time
+        from user
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="UserMap">
+        select
+        id, username, mobile, password, open_id, wallet, email, truename, gender, status, add_time
+        from user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="openId != null and openId != ''">
+                and open_id = #{openId}
+            </if>
+            <if test="wallet != null">
+                and wallet = #{wallet}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="truename != null and truename != ''">
+                and truename = #{truename}
+            </if>
+            <if test="gender != null and gender != ''">
+                and gender = #{gender}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from user
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="openId != null and openId != ''">
+                and open_id = #{openId}
+            </if>
+            <if test="wallet != null">
+                and wallet = #{wallet}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="truename != null and truename != ''">
+                and truename = #{truename}
+            </if>
+            <if test="gender != null and gender != ''">
+                and gender = #{gender}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+    <select id="queryByUsername" resultMap="UserMap">
+        select id,
+               username,
+               mobile,
+               password,
+               open_id,
+               wallet,
+               email,
+               truename,
+               gender,
+               status,
+               add_time
+        from user
+        where username = #{username}
+    </select>
+    <select id="queryByAll" resultMap="UserMap">
+        select id,
+               username,
+               mobile,
+               password,
+               open_id,
+               wallet,
+               email,
+               truename,
+               gender,
+               status,
+               add_time
+        from user
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into user(username, mobile, password, open_id, wallet, email, truename, gender, status, add_time)
+        values (#{username}, #{mobile}, #{password}, #{openId}, #{wallet}, #{email}, #{truename}, #{gender}, #{status},
+                #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into user(username, mobile, password, open_id, wallet, email, truename, gender, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.username}, #{entity.mobile}, #{entity.password}, #{entity.openId}, #{entity.wallet},
+            #{entity.email}, #{entity.truename}, #{entity.gender}, #{entity.status}, #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into user(username, mobile, password, open_id, wallet, email, truename, gender, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.username}, #{entity.mobile}, #{entity.password}, #{entity.openId}, #{entity.wallet},
+            #{entity.email}, #{entity.truename}, #{entity.gender}, #{entity.status}, #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        username = values(username),
+        mobile = values(mobile),
+        password = values(password),
+        open_id = values(open_id),
+        wallet = values(wallet),
+        email = values(email),
+        truename = values(truename),
+        gender = values(gender),
+        status = values(status),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update user
+        <set>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="openId != null and openId != ''">
+                open_id = #{openId},
+            </if>
+            <if test="wallet != null">
+                wallet = #{wallet},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="truename != null and truename != ''">
+                truename = #{truename},
+            </if>
+            <if test="gender != null and gender != ''">
+                gender = #{gender},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from user
+        where id = #{id}
+    </delete>
+
+</mapper>
+
