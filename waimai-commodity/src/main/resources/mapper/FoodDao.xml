@@ -1,0 +1,305 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaicommodity.dao.FoodDao">
+
+    <resultMap type="com.example.waimaicommodity.entity.Food" id="FoodMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="shopId" column="shop_id" jdbcType="INTEGER"/>
+        <result property="cateId" column="cate_id" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="describ" column="describ" jdbcType="VARCHAR"/>
+        <result property="cover" column="cover" jdbcType="VARCHAR"/>
+        <result property="originPrice" column="origin_price" jdbcType="INTEGER"/>
+        <result property="sellPrice" column="sell_price" jdbcType="INTEGER"/>
+        <result property="discount" column="discount" jdbcType="INTEGER"/>
+        <result property="likesNum" column="likes_num" jdbcType="INTEGER"/>
+        <result property="limitNum" column="limit_num" jdbcType="INTEGER"/>
+        <result property="pecifications" column="pecifications" jdbcType="VARCHAR"/>
+        <result property="totalSales" column="total_sales" jdbcType="INTEGER"/>
+        <result property="monthSales" column="month_sales" jdbcType="INTEGER"/>
+        <result property="praiseRate" column="praise_rate" jdbcType="INTEGER"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="FoodMap">
+        select id,
+               shop_id,
+               cate_id,
+               title,
+               describ,
+               cover,
+               origin_price,
+               sell_price,
+               discount,
+               likes_num,
+               limit_num,
+               pecifications,
+               total_sales,
+               month_sales,
+               praise_rate,
+               status,
+               add_time
+        from food
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="FoodMap">
+        select
+        id, shop_id, cate_id, title, describ, cover, origin_price, sell_price, discount, likes_num, limit_num,
+        pecifications, total_sales, month_sales, praise_rate, status, add_time
+        from food
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="cateId != null">
+                and cate_id = #{cateId}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="describ != null and describ != ''">
+                and describ = #{describ}
+            </if>
+            <if test="cover != null and cover != ''">
+                and cover = #{cover}
+            </if>
+            <if test="originPrice != null">
+                and origin_price = #{originPrice}
+            </if>
+            <if test="sellPrice != null">
+                and sell_price = #{sellPrice}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="likesNum != null">
+                and likes_num = #{likesNum}
+            </if>
+            <if test="limitNum != null">
+                and limit_num = #{limitNum}
+            </if>
+            <if test="pecifications != null and pecifications != ''">
+                and pecifications = #{pecifications}
+            </if>
+            <if test="totalSales != null">
+                and total_sales = #{totalSales}
+            </if>
+            <if test="monthSales != null">
+                and month_sales = #{monthSales}
+            </if>
+            <if test="praiseRate != null">
+                and praise_rate = #{praiseRate}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from food
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="cateId != null">
+                and cate_id = #{cateId}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="describ != null and describ != ''">
+                and describ = #{describ}
+            </if>
+            <if test="cover != null and cover != ''">
+                and cover = #{cover}
+            </if>
+            <if test="originPrice != null">
+                and origin_price = #{originPrice}
+            </if>
+            <if test="sellPrice != null">
+                and sell_price = #{sellPrice}
+            </if>
+            <if test="discount != null">
+                and discount = #{discount}
+            </if>
+            <if test="likesNum != null">
+                and likes_num = #{likesNum}
+            </if>
+            <if test="limitNum != null">
+                and limit_num = #{limitNum}
+            </if>
+            <if test="pecifications != null and pecifications != ''">
+                and pecifications = #{pecifications}
+            </if>
+            <if test="totalSales != null">
+                and total_sales = #{totalSales}
+            </if>
+            <if test="monthSales != null">
+                and month_sales = #{monthSales}
+            </if>
+            <if test="praiseRate != null">
+                and praise_rate = #{praiseRate}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+
+    <!--查询food所有数据-->
+    <select id="findAll" resultMap="FoodMap">
+        select id,
+               shop_id,
+               cate_id,
+               title,
+               describ,
+               cover,
+               origin_price,
+               sell_price,
+               discount,
+               likes_num,
+               limit_num,
+               pecifications,
+               total_sales,
+               month_sales,
+               praise_rate,
+               status,
+               add_time
+        from food
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into food(shop_id, cate_id, title, describ, cover, origin_price, sell_price, discount, likes_num,
+                         limit_num, pecifications, total_sales, month_sales, praise_rate, status, add_time)
+        values (#{shopId}, #{cateId}, #{title}, #{describ}, #{cover}, #{originPrice}, #{sellPrice}, #{discount},
+                #{likesNum}, #{limitNum}, #{pecifications}, #{totalSales}, #{monthSales}, #{praiseRate}, #{status},
+                #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into food(shop_id, cate_id, title, describ, cover, origin_price, sell_price, discount, likes_num,
+        limit_num, pecifications, total_sales, month_sales, praise_rate, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.shopId}, #{entity.cateId}, #{entity.title}, #{entity.describ}, #{entity.cover},
+            #{entity.originPrice}, #{entity.sellPrice}, #{entity.discount}, #{entity.likesNum}, #{entity.limitNum},
+            #{entity.pecifications}, #{entity.totalSales}, #{entity.monthSales}, #{entity.praiseRate}, #{entity.status},
+            #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into food(shop_id, cate_id, title, describ, cover, origin_price, sell_price, discount, likes_num,
+        limit_num, pecifications, total_sales, month_sales, praise_rate, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.shopId}, #{entity.cateId}, #{entity.title}, #{entity.describ}, #{entity.cover},
+            #{entity.originPrice}, #{entity.sellPrice}, #{entity.discount}, #{entity.likesNum}, #{entity.limitNum},
+            #{entity.pecifications}, #{entity.totalSales}, #{entity.monthSales}, #{entity.praiseRate}, #{entity.status},
+            #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        shop_id = values(shop_id),
+        cate_id = values(cate_id),
+        title = values(title),
+        describ = values(describ),
+        cover = values(cover),
+        origin_price = values(origin_price),
+        sell_price = values(sell_price),
+        discount = values(discount),
+        likes_num = values(likes_num),
+        limit_num = values(limit_num),
+        pecifications = values(pecifications),
+        total_sales = values(total_sales),
+        month_sales = values(month_sales),
+        praise_rate = values(praise_rate),
+        status = values(status),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update food
+        <set>
+            <if test="shopId != null">
+                shop_id = #{shopId},
+            </if>
+            <if test="cateId != null">
+                cate_id = #{cateId},
+            </if>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="describ != null and describ != ''">
+                describ = #{describ},
+            </if>
+            <if test="cover != null and cover != ''">
+                cover = #{cover},
+            </if>
+            <if test="originPrice != null">
+                origin_price = #{originPrice},
+            </if>
+            <if test="sellPrice != null">
+                sell_price = #{sellPrice},
+            </if>
+            <if test="discount != null">
+                discount = #{discount},
+            </if>
+            <if test="likesNum != null">
+                likes_num = #{likesNum},
+            </if>
+            <if test="limitNum != null">
+                limit_num = #{limitNum},
+            </if>
+            <if test="pecifications != null and pecifications != ''">
+                pecifications = #{pecifications},
+            </if>
+            <if test="totalSales != null">
+                total_sales = #{totalSales},
+            </if>
+            <if test="monthSales != null">
+                month_sales = #{monthSales},
+            </if>
+            <if test="praiseRate != null">
+                praise_rate = #{praiseRate},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from food
+        where id = #{id}
+    </delete>
+
+</mapper>
+

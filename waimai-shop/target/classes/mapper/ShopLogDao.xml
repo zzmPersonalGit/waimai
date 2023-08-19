@@ -1,0 +1,196 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaishop.dao.ShopLogDao">
+
+    <resultMap type="com.example.waimaishop.entity.ShopLog" id="ShopLogMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="serverId" column="server_id" jdbcType="INTEGER"/>
+        <result property="adminId" column="admin_id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="controller" column="controller" jdbcType="VARCHAR"/>
+        <result property="action" column="action" jdbcType="VARCHAR"/>
+        <result property="detail" column="detail" jdbcType="VARCHAR"/>
+        <result property="ip" column="ip" jdbcType="VARCHAR"/>
+        <result property="result" column="result" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ShopLogMap">
+        select id,
+               server_id,
+               admin_id,
+               username,
+               controller, action, detail, ip, result, status, add_time
+        from shop_log
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ShopLogMap">
+        select
+        id, server_id, admin_id, username, controller, action, detail, ip, result, status, add_time
+        from shop_log
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="serverId != null">
+                and server_id = #{serverId}
+            </if>
+            <if test="adminId != null">
+                and admin_id = #{adminId}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="controller != null and controller != ''">
+                and controller = #{controller}
+            </if>
+            <if test="action != null and action != ''">
+                and action = #{action}
+            </if>
+            <if test="detail != null and detail != ''">
+                and detail = #{detail}
+            </if>
+            <if test="ip != null and ip != ''">
+                and ip = #{ip}
+            </if>
+            <if test="result != null and result != ''">
+                and result = #{result}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from shop_log
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="serverId != null">
+                and server_id = #{serverId}
+            </if>
+            <if test="adminId != null">
+                and admin_id = #{adminId}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="controller != null and controller != ''">
+                and controller = #{controller}
+            </if>
+            <if test="action != null and action != ''">
+                and action = #{action}
+            </if>
+            <if test="detail != null and detail != ''">
+                and detail = #{detail}
+            </if>
+            <if test="ip != null and ip != ''">
+                and ip = #{ip}
+            </if>
+            <if test="result != null and result != ''">
+                and result = #{result}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into shop_log(server_id, admin_id, username, controller, action, detail, ip, result, status, add_time)
+        values (#{serverId}, #{adminId}, #{username}, #{controller}, #{action}, #{detail}, #{ip}, #{result}, #{status},
+                #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shop_log(server_id, admin_id, username, controller, action, detail, ip, result, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.serverId}, #{entity.adminId}, #{entity.username}, #{entity.controller}, #{entity.action},
+            #{entity.detail}, #{entity.ip}, #{entity.result}, #{entity.status}, #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shop_log(server_id, admin_id, username, controller, action, detail, ip, result, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.serverId}, #{entity.adminId}, #{entity.username}, #{entity.controller}, #{entity.action},
+            #{entity.detail}, #{entity.ip}, #{entity.result}, #{entity.status}, #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        server_id = values(server_id),
+        admin_id = values(admin_id),
+        username = values(username),
+        controller = values(controller),
+        action = values(action),
+        detail = values(detail),
+        ip = values(ip),
+        result = values(result),
+        status = values(status),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shop_log
+        <set>
+            <if test="serverId != null">
+                server_id = #{serverId},
+            </if>
+            <if test="adminId != null">
+                admin_id = #{adminId},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="controller != null and controller != ''">
+                controller = #{controller},
+            </if>
+            <if test="action != null and action != ''">
+                action = #{action},
+            </if>
+            <if test="detail != null and detail != ''">
+                detail = #{detail},
+            </if>
+            <if test="ip != null and ip != ''">
+                ip = #{ip},
+            </if>
+            <if test="result != null and result != ''">
+                result = #{result},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from shop_log
+        where id = #{id}
+    </delete>
+
+</mapper>
+

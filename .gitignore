@@ -1,0 +1,5 @@
+# Project exclude paths
+/waimai-admin/target/
+/waimai-commodity/target/
+/waimai-deliver/target/
+/waimai-order/target/

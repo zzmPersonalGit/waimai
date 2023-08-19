@@ -1,0 +1,206 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaiorder.dao.OrderRefundDao">
+
+    <resultMap type="com.example.waimaiorder.entity.OrderRefund" id="OrderRefundMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="orderId" column="order_id" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="username" column="username" jdbcType="VARCHAR"/>
+        <result property="payMoney" column="pay_money" jdbcType="INTEGER"/>
+        <result property="refundReason" column="refund_reason" jdbcType="VARCHAR"/>
+        <result property="applyTime" column="apply_time" jdbcType="INTEGER"/>
+        <result property="serviceCost" column="service_cost" jdbcType="INTEGER"/>
+        <result property="handleTime" column="handle_time" jdbcType="TIMESTAMP"/>
+        <result property="finishTime" column="finish_time" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OrderRefundMap">
+        select id,
+               order_id,
+               user_id,
+               username,
+               pay_money,
+               refund_reason,
+               apply_time,
+               service_cost,
+               handle_time,
+               finish_time,
+               status
+        from order_refund
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="OrderRefundMap">
+        select
+        id, order_id, user_id, username, pay_money, refund_reason, apply_time, service_cost, handle_time, finish_time,
+        status
+        from order_refund
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderId != null and orderId != ''">
+                and order_id = #{orderId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="payMoney != null">
+                and pay_money = #{payMoney}
+            </if>
+            <if test="refundReason != null and refundReason != ''">
+                and refund_reason = #{refundReason}
+            </if>
+            <if test="applyTime != null">
+                and apply_time = #{applyTime}
+            </if>
+            <if test="serviceCost != null">
+                and service_cost = #{serviceCost}
+            </if>
+            <if test="handleTime != null">
+                and handle_time = #{handleTime}
+            </if>
+            <if test="finishTime != null">
+                and finish_time = #{finishTime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from order_refund
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderId != null and orderId != ''">
+                and order_id = #{orderId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="username != null and username != ''">
+                and username = #{username}
+            </if>
+            <if test="payMoney != null">
+                and pay_money = #{payMoney}
+            </if>
+            <if test="refundReason != null and refundReason != ''">
+                and refund_reason = #{refundReason}
+            </if>
+            <if test="applyTime != null">
+                and apply_time = #{applyTime}
+            </if>
+            <if test="serviceCost != null">
+                and service_cost = #{serviceCost}
+            </if>
+            <if test="handleTime != null">
+                and handle_time = #{handleTime}
+            </if>
+            <if test="finishTime != null">
+                and finish_time = #{finishTime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into order_refund(order_id, user_id, username, pay_money, refund_reason, apply_time, service_cost,
+                                 handle_time, finish_time, status)
+        values (#{orderId}, #{userId}, #{username}, #{payMoney}, #{refundReason}, #{applyTime}, #{serviceCost},
+                #{handleTime}, #{finishTime}, #{status})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into order_refund(order_id, user_id, username, pay_money, refund_reason, apply_time, service_cost,
+        handle_time, finish_time, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.orderId}, #{entity.userId}, #{entity.username}, #{entity.payMoney}, #{entity.refundReason},
+            #{entity.applyTime}, #{entity.serviceCost}, #{entity.handleTime}, #{entity.finishTime}, #{entity.status})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into order_refund(order_id, user_id, username, pay_money, refund_reason, apply_time, service_cost,
+        handle_time, finish_time, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.orderId}, #{entity.userId}, #{entity.username}, #{entity.payMoney}, #{entity.refundReason},
+            #{entity.applyTime}, #{entity.serviceCost}, #{entity.handleTime}, #{entity.finishTime}, #{entity.status})
+        </foreach>
+        on duplicate key update
+        order_id = values(order_id),
+        user_id = values(user_id),
+        username = values(username),
+        pay_money = values(pay_money),
+        refund_reason = values(refund_reason),
+        apply_time = values(apply_time),
+        service_cost = values(service_cost),
+        handle_time = values(handle_time),
+        finish_time = values(finish_time),
+        status = values(status)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update order_refund
+        <set>
+            <if test="orderId != null and orderId != ''">
+                order_id = #{orderId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="username != null and username != ''">
+                username = #{username},
+            </if>
+            <if test="payMoney != null">
+                pay_money = #{payMoney},
+            </if>
+            <if test="refundReason != null and refundReason != ''">
+                refund_reason = #{refundReason},
+            </if>
+            <if test="applyTime != null">
+                apply_time = #{applyTime},
+            </if>
+            <if test="serviceCost != null">
+                service_cost = #{serviceCost},
+            </if>
+            <if test="handleTime != null">
+                handle_time = #{handleTime},
+            </if>
+            <if test="finishTime != null">
+                finish_time = #{finishTime},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from order_refund
+        where id = #{id}
+    </delete>
+
+</mapper>
+

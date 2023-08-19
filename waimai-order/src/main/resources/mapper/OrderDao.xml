@@ -1,0 +1,256 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaiorder.dao.OrderDao">
+
+    <resultMap type="com.example.waimaiorder.entity.Order" id="OrderMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="orderId" column="order_id" jdbcType="VARCHAR"/>
+        <result property="userId" column="user_id" jdbcType="INTEGER"/>
+        <result property="shopId" column="shop_id" jdbcType="INTEGER"/>
+        <result property="boxCost" column="box_cost" jdbcType="INTEGER"/>
+        <result property="sendCost" column="send_cost" jdbcType="INTEGER"/>
+        <result property="totalMoney" column="total_money" jdbcType="INTEGER"/>
+        <result property="discountMoney" column="discount_money" jdbcType="INTEGER"/>
+        <result property="couponId" column="coupon_id" jdbcType="VARCHAR"/>
+        <result property="couponMoney" column="coupon_money" jdbcType="INTEGER"/>
+        <result property="payMoney" column="pay_money" jdbcType="INTEGER"/>
+        <result property="payWay" column="pay_way" jdbcType="INTEGER"/>
+        <result property="demandTime" column="demand_time" jdbcType="TIMESTAMP"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="OrderMap">
+        select id,
+               order_id,
+               user_id,
+               shop_id,
+               box_cost,
+               send_cost,
+               total_money,
+               discount_money,
+               coupon_id,
+               coupon_money,
+               pay_money,
+               pay_way,
+               demand_time,
+               add_time,
+               status
+        from order
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="OrderMap">
+        select
+        id, order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id, coupon_money,
+        pay_money, pay_way, demand_time, add_time, status
+        from order
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderId != null and orderId != ''">
+                and order_id = #{orderId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="boxCost != null">
+                and box_cost = #{boxCost}
+            </if>
+            <if test="sendCost != null">
+                and send_cost = #{sendCost}
+            </if>
+            <if test="totalMoney != null">
+                and total_money = #{totalMoney}
+            </if>
+            <if test="discountMoney != null">
+                and discount_money = #{discountMoney}
+            </if>
+            <if test="couponId != null and couponId != ''">
+                and coupon_id = #{couponId}
+            </if>
+            <if test="couponMoney != null">
+                and coupon_money = #{couponMoney}
+            </if>
+            <if test="payMoney != null">
+                and pay_money = #{payMoney}
+            </if>
+            <if test="payWay != null">
+                and pay_way = #{payWay}
+            </if>
+            <if test="demandTime != null">
+                and demand_time = #{demandTime}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from order
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="orderId != null and orderId != ''">
+                and order_id = #{orderId}
+            </if>
+            <if test="userId != null">
+                and user_id = #{userId}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="boxCost != null">
+                and box_cost = #{boxCost}
+            </if>
+            <if test="sendCost != null">
+                and send_cost = #{sendCost}
+            </if>
+            <if test="totalMoney != null">
+                and total_money = #{totalMoney}
+            </if>
+            <if test="discountMoney != null">
+                and discount_money = #{discountMoney}
+            </if>
+            <if test="couponId != null and couponId != ''">
+                and coupon_id = #{couponId}
+            </if>
+            <if test="couponMoney != null">
+                and coupon_money = #{couponMoney}
+            </if>
+            <if test="payMoney != null">
+                and pay_money = #{payMoney}
+            </if>
+            <if test="payWay != null">
+                and pay_way = #{payWay}
+            </if>
+            <if test="demandTime != null">
+                and demand_time = #{demandTime}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into order(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
+                          coupon_money, pay_money, pay_way, demand_time, add_time, status)
+        values (#{orderId}, #{userId}, #{shopId}, #{boxCost}, #{sendCost}, #{totalMoney}, #{discountMoney}, #{couponId},
+                #{couponMoney}, #{payMoney}, #{payWay}, #{demandTime}, #{addTime}, #{status})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into order(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
+        coupon_money, pay_money, pay_way, demand_time, add_time, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.orderId}, #{entity.userId}, #{entity.shopId}, #{entity.boxCost}, #{entity.sendCost},
+            #{entity.totalMoney}, #{entity.discountMoney}, #{entity.couponId}, #{entity.couponMoney},
+            #{entity.payMoney}, #{entity.payWay}, #{entity.demandTime}, #{entity.addTime}, #{entity.status})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into order(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
+        coupon_money, pay_money, pay_way, demand_time, add_time, status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.orderId}, #{entity.userId}, #{entity.shopId}, #{entity.boxCost}, #{entity.sendCost},
+            #{entity.totalMoney}, #{entity.discountMoney}, #{entity.couponId}, #{entity.couponMoney},
+            #{entity.payMoney}, #{entity.payWay}, #{entity.demandTime}, #{entity.addTime}, #{entity.status})
+        </foreach>
+        on duplicate key update
+        order_id = values(order_id),
+        user_id = values(user_id),
+        shop_id = values(shop_id),
+        box_cost = values(box_cost),
+        send_cost = values(send_cost),
+        total_money = values(total_money),
+        discount_money = values(discount_money),
+        coupon_id = values(coupon_id),
+        coupon_money = values(coupon_money),
+        pay_money = values(pay_money),
+        pay_way = values(pay_way),
+        demand_time = values(demand_time),
+        add_time = values(add_time),
+        status = values(status)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update order
+        <set>
+            <if test="orderId != null and orderId != ''">
+                order_id = #{orderId},
+            </if>
+            <if test="userId != null">
+                user_id = #{userId},
+            </if>
+            <if test="shopId != null">
+                shop_id = #{shopId},
+            </if>
+            <if test="boxCost != null">
+                box_cost = #{boxCost},
+            </if>
+            <if test="sendCost != null">
+                send_cost = #{sendCost},
+            </if>
+            <if test="totalMoney != null">
+                total_money = #{totalMoney},
+            </if>
+            <if test="discountMoney != null">
+                discount_money = #{discountMoney},
+            </if>
+            <if test="couponId != null and couponId != ''">
+                coupon_id = #{couponId},
+            </if>
+            <if test="couponMoney != null">
+                coupon_money = #{couponMoney},
+            </if>
+            <if test="payMoney != null">
+                pay_money = #{payMoney},
+            </if>
+            <if test="payWay != null">
+                pay_way = #{payWay},
+            </if>
+            <if test="demandTime != null">
+                demand_time = #{demandTime},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from order
+        where id = #{id}
+    </delete>
+
+</mapper>
+
