@@ -1,6 +1,7 @@
 package com.example.waimaiorder.service;
 
 import com.example.waimaiorder.common.response.Result;
+import com.example.waimaiorder.entity.Cart;
 
 import javax.servlet.http.HttpServletRequest;
 import java.util.concurrent.ExecutionException;
@@ -15,4 +16,6 @@ public interface CartService {
 
 
     Result addCart(Integer foodId, HttpServletRequest request) throws ExecutionException, InterruptedException;
+
+    Cart queryByCartId(Integer cartId);
 }

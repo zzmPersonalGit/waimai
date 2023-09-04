@@ -11,4 +11,6 @@ public final class Cons {
     public static final Integer REDIS_INDEX_DB = 0;
     //redis中shopinfo列表的key
     public static final String SHOPINFOKEY = "shopinfo";
+    //redis中shop表的key
+    public static final String SHOPKEY = "shop";
 }

@@ -72,5 +72,8 @@ public interface OrderDao {
      */
     int deleteById(Integer id);
 
+    List<Order> queryAll();
+
+    Integer queryByOrderId(String orderId);
 }
 

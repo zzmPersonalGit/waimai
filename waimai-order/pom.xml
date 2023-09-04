@@ -16,6 +16,19 @@
         <java.version>11</java.version>
     </properties>
     <dependencies>
+        <!--spring AOP-->
+        <dependency>
+            <groupId>org.springframework.boot</groupId>
+            <artifactId>spring-boot-starter-aop</artifactId>
+        </dependency>
+
+        <!--retry-->
+        <dependency>
+            <groupId>org.springframework.retry</groupId>
+            <artifactId>spring-retry</artifactId>
+            <version>1.2.5.RELEASE</version>
+        </dependency>
+
 
         <!--AMQP依赖，包含RabbitMQ-->
         <dependency>

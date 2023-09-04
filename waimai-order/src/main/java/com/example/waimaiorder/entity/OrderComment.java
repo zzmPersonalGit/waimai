@@ -1,5 +1,7 @@
 package com.example.waimaiorder.entity;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -9,6 +11,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2023-08-17 18:08:13
  */
+@Data
 public class OrderComment implements Serializable {
     private static final long serialVersionUID = -82028489878038646L;
     /**
@@ -56,94 +59,6 @@ public class OrderComment implements Serializable {
      */
     private String likeIds;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public Integer getUserId() {
-        return userId;
-    }
-
-    public void setUserId(Integer userId) {
-        this.userId = userId;
-    }
-
-    public String getContent() {
-        return content;
-    }
-
-    public void setContent(String content) {
-        this.content = content;
-    }
-
-    public String getImages() {
-        return images;
-    }
-
-    public void setImages(String images) {
-        this.images = images;
-    }
-
-    public Date getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(Date addTime) {
-        this.addTime = addTime;
-    }
-
-    public String getPath() {
-        return path;
-    }
-
-    public void setPath(String path) {
-        this.path = path;
-    }
-
-    public Integer getNumPraise() {
-        return numPraise;
-    }
-
-    public void setNumPraise(Integer numPraise) {
-        this.numPraise = numPraise;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Integer getReCommentId() {
-        return reCommentId;
-    }
-
-    public void setReCommentId(Integer reCommentId) {
-        this.reCommentId = reCommentId;
-    }
-
-    public String getLikeIds() {
-        return likeIds;
-    }
-
-    public void setLikeIds(String likeIds) {
-        this.likeIds = likeIds;
-    }
 
 }
 

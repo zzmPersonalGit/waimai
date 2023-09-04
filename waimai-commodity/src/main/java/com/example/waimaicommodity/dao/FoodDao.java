@@ -1,6 +1,8 @@
 package com.example.waimaicommodity.dao;
 
 import com.example.waimaicommodity.entity.Food;
+import com.example.waimaicommodity.entity.OrderFood;
+import org.apache.ibatis.annotations.Mapper;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.data.domain.Pageable;
 
@@ -86,5 +88,8 @@ public interface FoodDao {
      * @return 所有数据
      */
     List<Food> findAll();
+
+    Integer updateForList(@Param("foodList") List<Food> foodList);
+
 }
 

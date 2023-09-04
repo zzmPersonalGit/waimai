@@ -100,6 +100,19 @@ public class UserServiceImpl implements UserService {
         return user;
     }
 
+    @Override
+    public User queryByUserId(Integer userId) {
+
+        User user = userDao.queryById(userId);
+        threadPoolUtils.execute(new Runnable() {
+            @Override
+            public void run() {
+                addUserCache();
+            }
+        });
+        return user;
+    }
+
     /*建立user表缓存*/
     public Boolean addUserCache(){
         List<User> userList = userDao.queryByAll();

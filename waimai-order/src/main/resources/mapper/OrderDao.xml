@@ -9,15 +9,15 @@
         <result property="shopId" column="shop_id" jdbcType="INTEGER"/>
         <result property="boxCost" column="box_cost" jdbcType="INTEGER"/>
         <result property="sendCost" column="send_cost" jdbcType="INTEGER"/>
-        <result property="totalMoney" column="total_money" jdbcType="INTEGER"/>
-        <result property="discountMoney" column="discount_money" jdbcType="INTEGER"/>
+        <result property="totalMoney" column="total_money" jdbcType="NUMERIC"/>
+        <result property="discountMoney" column="discount_money" jdbcType="NUMERIC"/>
         <result property="couponId" column="coupon_id" jdbcType="VARCHAR"/>
-        <result property="couponMoney" column="coupon_money" jdbcType="INTEGER"/>
-        <result property="payMoney" column="pay_money" jdbcType="INTEGER"/>
+        <result property="couponMoney" column="coupon_money" jdbcType="NUMERIC"/>
+        <result property="payMoney" column="pay_money" jdbcType="NUMERIC"/>
         <result property="payWay" column="pay_way" jdbcType="INTEGER"/>
         <result property="demandTime" column="demand_time" jdbcType="TIMESTAMP"/>
         <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
-        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="orderStatus" column="order_status" jdbcType="INTEGER"/>
     </resultMap>
 
     <!--查询单个-->
@@ -36,15 +36,15 @@
                pay_way,
                demand_time,
                add_time,
-               status
-        from order
+               order_status
+        from `order`
         where id = #{id}
     </select>
 
     <!--统计总行数-->
     <select id="count" resultType="java.lang.Long">
         select count(1)
-        from order
+        from `order`
         <where>
             <if test="id != null">
                 and id = #{id}
@@ -88,39 +88,63 @@
             <if test="addTime != null">
                 and add_time = #{addTime}
             </if>
-            <if test="status != null">
-                and status = #{status}
+            <if test="orderStatus != null">
+                and order_status = #{orderStatus}
             </if>
         </where>
     </select>
 
+    <select id="queryAll" resultMap="OrderMap">
+        select id,
+               order_id,
+               user_id,
+               shop_id,
+               box_cost,
+               send_cost,
+               total_money,
+               discount_money,
+               coupon_id,
+               coupon_money,
+               pay_money,
+               pay_way,
+               demand_time,
+               add_time,
+               order_status
+        from `order`
+    </select>
+    <select id="queryByOrderId" resultType="java.lang.Integer">
+        select id
+        from `order`
+        where order_id = #{orderId}
+    </select>
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into order(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
-                          coupon_money, pay_money, pay_way, demand_time, add_time, status)
+        insert into `order`(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
+                          coupon_money, pay_money, pay_way, demand_time, add_time, order_status)
         values (#{orderId}, #{userId}, #{shopId}, #{boxCost}, #{sendCost}, #{totalMoney}, #{discountMoney}, #{couponId},
-                #{couponMoney}, #{payMoney}, #{payWay}, #{demandTime}, #{addTime}, #{status})
+                #{couponMoney}, #{payMoney}, #{payWay}, #{demandTime}, #{addTime}, #{orderStatus})
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into order(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
-        coupon_money, pay_money, pay_way, demand_time, add_time, status)
+        insert into `order`(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
+        coupon_money, pay_money, pay_way, demand_time, add_time, order_status)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.orderId}, #{entity.userId}, #{entity.shopId}, #{entity.boxCost}, #{entity.sendCost},
             #{entity.totalMoney}, #{entity.discountMoney}, #{entity.couponId}, #{entity.couponMoney},
-            #{entity.payMoney}, #{entity.payWay}, #{entity.demandTime}, #{entity.addTime}, #{entity.status})
+            #{entity.payMoney}, #{entity.payWay}, #{entity.demandTime}, #{entity.addTime}, #{entity.orderStatus})
         </foreach>
     </insert>
 
     <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into order(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
-        coupon_money, pay_money, pay_way, demand_time, add_time, status)
+        insert into `order`(order_id, user_id, shop_id, box_cost, send_cost, total_money, discount_money, coupon_id,
+        coupon_money, pay_money, pay_way, demand_time, add_time, order_status)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.orderId}, #{entity.userId}, #{entity.shopId}, #{entity.boxCost}, #{entity.sendCost},
             #{entity.totalMoney}, #{entity.discountMoney}, #{entity.couponId}, #{entity.couponMoney},
-            #{entity.payMoney}, #{entity.payWay}, #{entity.demandTime}, #{entity.addTime}, #{entity.status})
+            #{entity.payMoney}, #{entity.payWay}, #{entity.demandTime}, #{entity.addTime}, #{entity.orderStatus})
         </foreach>
         on duplicate key update
         order_id = values(order_id),
@@ -136,12 +160,12 @@
         pay_way = values(pay_way),
         demand_time = values(demand_time),
         add_time = values(add_time),
-        status = values(status)
+        order_status = values(order_status)
     </insert>
 
     <!--通过主键修改数据-->
     <update id="update">
-        update order
+        update `order`
         <set>
             <if test="orderId != null and orderId != ''">
                 order_id = #{orderId},
@@ -182,8 +206,8 @@
             <if test="addTime != null">
                 add_time = #{addTime},
             </if>
-            <if test="status != null">
-                status = #{status},
+            <if test="orderStatus != null">
+                order_status = #{orderStatus},
             </if>
         </set>
         where id = #{id}
@@ -192,7 +216,7 @@
     <!--通过主键删除-->
     <delete id="deleteById">
         delete
-        from order
+        from `order`
         where id = #{id}
     </delete>
 

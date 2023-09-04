@@ -12,6 +12,7 @@ import org.springframework.data.domain.PageRequest;
  */
 public interface CartInfoService {
 
+    void addFood(Integer cartId, Integer foodId);
 
-
+    CartInfo queryByCartId(Integer cartId);
 }

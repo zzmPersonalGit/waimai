@@ -1,14 +1,12 @@
 package com.example.waimaiorder;
 
 
-import com.example.waimaiorder.common.response.Result;
 import com.example.waimaiorder.common.util.ConvertUtil;
 import com.example.waimaiorder.common.util.RedisUtil;
 import com.example.waimaiorder.common.util.ThreadPoolUtils;
 import com.example.waimaiorder.entity.Food;
-import com.example.waimaiorder.entity.User;
-import com.example.waimaiorder.feignClient.CommondityserviceFeign;
-import com.example.waimaiorder.feignClient.ShopserviceFeign;
+import com.example.waimaiorder.feignClient.CommondityServiceFeign;
+import com.example.waimaiorder.feignClient.ShopServiceFeign;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -21,8 +19,6 @@ import java.util.concurrent.Callable;
 import java.util.concurrent.ExecutionException;
 import java.util.concurrent.Future;
 
-import static org.checkerframework.checker.units.UnitsTools.s;
-
 @SpringBootTest
 class WaimaiOrderApplicationTests {
 
@@ -33,10 +29,10 @@ class WaimaiOrderApplicationTests {
     private RedisUtil redisUtil;
 
     @Autowired
-    private CommondityserviceFeign commondityserviceFeign;
+    private CommondityServiceFeign commondityserviceFeign;
 
     @Autowired
-    private ShopserviceFeign shopserviceFeign;
+    private ShopServiceFeign shopServiceFeign;
 
     @Autowired
     private ConvertUtil convertUtil;
@@ -126,18 +122,7 @@ class WaimaiOrderApplicationTests {
 
     @Test
     void shopServiceFeignTest(){
-        List<Integer> list = new ArrayList<>();
-        list.add(18);
-        list.add(8);
-        list.add(0);
 
-        String s = convertUtil.ListToString(list);
-
-        /*List<Integer> integers = JSON.parseArray(s, Integer.class);*/
-        /*List list1 = convertUtil.StringToList(s, new Integer(1));
-        System.out.println(list1);*/
-        Result shopinfoservice = shopserviceFeign.shopinfoservice(s);
-        System.out.println(shopinfoservice.getData());
 
     }
 

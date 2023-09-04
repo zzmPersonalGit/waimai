@@ -1,5 +1,7 @@
 package com.example.waimaishop.entity;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -9,6 +11,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2023-08-20 12:48:37
  */
+@Data
 public class Shop implements Serializable {
     private static final long serialVersionUID = 499578944297438997L;
     /**
@@ -51,87 +54,6 @@ public class Shop implements Serializable {
      * 加入时间
      */
     private Date addTime;
-
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getShopname() {
-        return shopname;
-    }
-
-    public void setShopname(String shopname) {
-        this.shopname = shopname;
-    }
-
-    public String getMobile() {
-        return mobile;
-    }
-
-    public void setMobile(String mobile) {
-        this.mobile = mobile;
-    }
-
-    public String getPassword() {
-        return password;
-    }
-
-    public void setPassword(String password) {
-        this.password = password;
-    }
-
-    public String getEmail() {
-        return email;
-    }
-
-    public void setEmail(String email) {
-        this.email = email;
-    }
-
-    public String getLoginInfo() {
-        return loginInfo;
-    }
-
-    public void setLoginInfo(String loginInfo) {
-        this.loginInfo = loginInfo;
-    }
-
-    public Integer getNumLoginError() {
-        return numLoginError;
-    }
-
-    public void setNumLoginError(Integer numLoginError) {
-        this.numLoginError = numLoginError;
-    }
-
-    public Date getTimeLoginLock() {
-        return timeLoginLock;
-    }
-
-    public void setTimeLoginLock(Date timeLoginLock) {
-        this.timeLoginLock = timeLoginLock;
-    }
-
-    public Integer getStatus() {
-        return status;
-    }
-
-    public void setStatus(Integer status) {
-        this.status = status;
-    }
-
-    public Date getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(Date addTime) {
-        this.addTime = addTime;
-    }
 
 }
 

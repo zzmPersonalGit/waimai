@@ -1,20 +1,22 @@
 package com.example.waimaiorder.service.impl;
 
+import com.example.waimaiorder.common.enums.ErrorCodeEnum;
 import com.example.waimaiorder.common.response.Result;
 import com.example.waimaiorder.common.util.*;
 import com.example.waimaiorder.entity.Cart;
 import com.example.waimaiorder.dao.CartDao;
 import com.example.waimaiorder.entity.Food;
-import com.example.waimaiorder.feignClient.CommondityserviceFeign;
+import com.example.waimaiorder.feignClient.CommondityServiceFeign;
+import com.example.waimaiorder.service.CartInfoService;
 import com.example.waimaiorder.service.CartService;
 import io.jsonwebtoken.Claims;
-import lombok.Synchronized;
 import lombok.extern.slf4j.Slf4j;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
-import org.springframework.validation.annotation.Validated;
+import org.springframework.transaction.annotation.Transactional;
 
 
+import javax.annotation.Resource;
 import javax.servlet.http.HttpServletRequest;
 import java.util.Date;
 import java.util.HashMap;
@@ -36,22 +38,24 @@ import static com.example.waimaiorder.common.Constants.Cons.*;
 @Service
 public class CartServiceImpl implements CartService {
 
-    @Autowired
+    @Resource
     private CartDao cartDao;
     @Autowired
     private RedisUtil redisUtil;
     @Autowired
     private ConvertUtil convertUtil;
     @Autowired
-    private CommondityserviceFeign commondityserviceFeign;
+    private CommondityServiceFeign commondityserviceFeign;
     @Autowired
     private ThreadPoolUtils threadPoolUtils;
     @Autowired
     private JwtUtils jwtUtils;
     @Autowired
     private CookieUtil cookieUtil;
+    @Autowired
+    private CartInfoService cartInfoService;
 
-
+    @Transactional(rollbackFor = Exception.class)
     @Override
     public Result addCart(Integer foodId, HttpServletRequest request) throws ExecutionException, InterruptedException {
 
@@ -61,16 +65,13 @@ public class CartServiceImpl implements CartService {
         CountDownLatch latch = new CountDownLatch(threadCount);
 
 
-        Cart cart = new Cart();
-
         Future userIdFuture = threadPoolUtils.submit(new Callable() {
             @Override
             public Integer call() throws Exception {
                 String tokenValue = cookieUtil.getCookieValue(TOKENINCOOKIENAME, request);
-                Claims usernameFromJwtToken = jwtUtils.getUsernameFromJwtToken(tokenValue);
-                Integer userid = (Integer) usernameFromJwtToken.get("userId");
+                Integer userId = jwtUtils.getUserIdFromJwtToken(tokenValue);
                 latch.countDown();
-                return userid;
+                return userId;
             }
         });
         Integer userId = (Integer) userIdFuture.get();
@@ -96,16 +97,69 @@ public class CartServiceImpl implements CartService {
         });
         Food food = (Food) submit.get();
 
+        Cart cart = queryByUidAndShopId(userId, food.getShopId());
 
-        Double originPrice = food.getOriginPrice();
-        Double sellPrice = food.getSellPrice();
-        Integer shopId = food.getShopId();
+        if (cart == null){
+            Double originPrice = food.getOriginPrice();
+            Double sellPrice = food.getSellPrice();
+            Integer shopId = food.getShopId();
 
-        cart.addCart1(userId, shopId, new Date(), originPrice, sellPrice);
+            cart.addCart1(userId, shopId, new Date(), originPrice, sellPrice);
+
+            int insert = cartDao.insert(cart);
+            if (insert != 0){
+                ThreadPoolUtils.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        addCartRedis();
+                    }
+                });
+
+                return new Result();
+            }
+        }else {
+            //存在该购物车，更新购物车信息
+            cart.setTotalMoney(cart.getTotalMoney() + food.getOriginPrice());
+            cart.setPayMoney(cart.getPayMoney() + food.getSellPrice());
+            Double dismoney = food.getOriginPrice() - food.getSellPrice();
+            cart.setDiscountMoney(cart.getDiscountMoney() + dismoney);
+
+            int update = cartDao.update(cart);
+
+            if (update != 0){
+                ThreadPoolUtils.execute(new Runnable() {
+                    @Override
+                    public void run() {
+                        addCartRedis();
+                    }
+                });
+
+                return new Result();
+            }
+        }
+
+        cartInfoService.addFood(cart.getId(), foodId);
 
         System.out.println(cart);
 
-        return null;
+        return Result.error(ErrorCodeEnum.System_ERROR);
+
+    }
+
+    @Override
+    public Cart queryByCartId(Integer cartId) {
+        Cart cart = cartDao.queryById(cartId);
+        if (cart != null){
+            threadPoolUtils.execute(new Runnable() {
+                @Override
+                public void run() {
+                    addCartRedis();
+                }
+            });
+
+        }
+
+        return cart;
     }
 
     /*通过userid和shopid查找购物车记录*/
@@ -143,6 +197,13 @@ public class CartServiceImpl implements CartService {
 
     /*建立缓存*/
     public void addCartRedis(){
+
+        //删除key
+        Boolean exist = redisUtil.exist(CARTKEY, REDIS_INDEX_DB);
+        if (exist){
+            redisUtil.remove(CARTKEY, REDIS_INDEX_DB);
+        }
+        //重建
         List<Cart> carts = cartDao.queryALL();
         HashMap<String, String> cartMap = new HashMap<>();
 
@@ -158,5 +219,20 @@ public class CartServiceImpl implements CartService {
         }else {
             log.info("cart购物车建立缓存失败");
         }
+    }
+
+    /*添加单条缓存*/
+    public void addSignalCache(Cart cart){
+        Boolean exist = redisUtil.exist(CARTKEY, REDIS_INDEX_DB);
+        if (!exist){
+            addCartRedis();
+        }else{
+            Long aLong = redisUtil.updateSingle(CARTKEY, REDIS_INDEX_DB, cart.getId().toString(), convertUtil.objectToString(cart));
+
+            if (aLong == 0L){
+                log.info("更新单条缓存失败");
+            }
+        }
+
     }
 }

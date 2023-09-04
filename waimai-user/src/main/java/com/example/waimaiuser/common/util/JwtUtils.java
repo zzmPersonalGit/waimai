@@ -43,14 +43,16 @@ public class JwtUtils {
      * @param token JWT Token
      * @return 用户名
      */
-    public Claims getUsernameFromJwtToken(String token) {
+    public Integer getUsernameFromJwtToken(String token) {
 
         Claims claims = Jwts.parser()
                 .setSigningKey(secret)
                 .parseClaimsJws(token)
                 .getBody();
 
-        return claims;
+        /*String username = claims.get("username", String.class);*/
+        Integer userId = claims.get("userId", Integer.class);
+        return userId;
     }
 
     /**

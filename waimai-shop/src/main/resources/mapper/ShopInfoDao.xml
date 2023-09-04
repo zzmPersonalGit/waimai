@@ -163,7 +163,7 @@
         limit #{pageable.offset}, #{pageable.pageSize}
     </select>
 
-    <select id="queryByShopIdList" resultMap="ShopInfoMap">
+    <select id="queryByShopId" resultMap="ShopInfoMap">
         select id,
                shop_id,
                tag,
@@ -193,8 +193,7 @@
                send_cost,
                floor_send_cost
         from shop_info
-        where shop_id
-                  in (#{shopIdList})
+        where shop_id = #{shopId}
     </select>
 
     <!--查询所有-->

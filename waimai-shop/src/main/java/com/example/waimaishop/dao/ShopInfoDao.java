@@ -80,14 +80,6 @@ public interface ShopInfoDao {
      */
     int deleteById(Integer id);
 
-
-    /**
-     * 根据 shopinfo 主键 list 表查数据
-     * @param
-     * @return 对象列表
-     */
-    List<ShopInfo> queryByShopIdList(@Param("shopIdList") List<Integer> shopIdList);
-
     /**
      * 查询所有数据
      * @param
@@ -95,5 +87,11 @@ public interface ShopInfoDao {
      */
     List<ShopInfo> queryAll();
 
+    /**
+     * 根据 shopinfo 主键 list 表查数据
+     * @param
+     * @return 对象列表
+     */
+    ShopInfo queryByShopId(Integer shopId);
 }
 

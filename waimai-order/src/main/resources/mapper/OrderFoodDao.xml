@@ -10,8 +10,8 @@
         <result property="foodId" column="food_id" jdbcType="INTEGER"/>
         <result property="title" column="title" jdbcType="VARCHAR"/>
         <result property="cover" column="cover" jdbcType="VARCHAR"/>
-        <result property="originPrice" column="origin_price" jdbcType="INTEGER"/>
-        <result property="sellPrice" column="sell_price" jdbcType="INTEGER"/>
+        <result property="originPrice" column="origin_price" jdbcType="DOUBLE"/>
+        <result property="sellPrice" column="sell_price" jdbcType="DOUBLE"/>
         <result property="number" column="number" jdbcType="INTEGER"/>
     </resultMap>
 
@@ -67,6 +67,41 @@
                 and number = #{number}
             </if>
         </where>
+    </select>
+    <select id="queryAll" resultMap="OrderFoodMap">
+        select id,
+               order_id,
+               shop_id,
+               shopname,
+               food_id,
+               title,
+               cover,
+               origin_price,
+               sell_price,
+               number
+        from order_food
+    </select>
+
+    <!--通过orderId和foodId查找主键id-->
+    <select id="queryByOrderIdAndFoodId" resultType="java.lang.Integer">
+        select id
+        from order_food
+        where order_id = #{orderId}
+        and food_id = #{foodId}
+    </select>
+    <select id="queryByOrderId" resultMap="OrderFoodMap">
+        select id,
+               order_id,
+               shop_id,
+               shopname,
+               food_id,
+               title,
+               cover,
+               origin_price,
+               sell_price,
+               number
+        from order_food
+        where order_id = #{orderId}
     </select>
 
     <!--新增所有列-->

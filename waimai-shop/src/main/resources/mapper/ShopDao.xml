@@ -109,6 +109,21 @@
         </where>
     </select>
 
+    <!--查找所有-->
+    <select id="queryByAll" resultMap="ShopMap">
+        select id,
+               shopname,
+               mobile,
+               password,
+               email,
+               login_info,
+               num_login_error,
+               time_login_lock,
+               status,
+               add_time
+        from shop
+    </select>
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
         insert into shop(shopname, mobile, password, email, login_info, num_login_error, time_login_lock, status,

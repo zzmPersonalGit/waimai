@@ -15,7 +15,7 @@
         select id,
                cart_id,
                food_id,
-               number,
+               'number',
                add_time
         from cart_info
         where id = #{id}
@@ -37,7 +37,7 @@
                 and food_id = #{foodId}
             </if>
             <if test="number != null">
-                and number = #{number}
+                and 'number' = #{number}
             </if>
             <if test="addTime != null">
                 and add_time = #{addTime}
@@ -61,7 +61,7 @@
                 and food_id = #{foodId}
             </if>
             <if test="number != null">
-                and number = #{number}
+                and 'number' = #{number}
             </if>
             <if test="addTime != null">
                 and add_time = #{addTime}
@@ -69,14 +69,43 @@
         </where>
     </select>
 
+    <!--查询全部-->
+    <select id="queryAll" resultMap="CartInfoMap">
+        select id,
+               cart_id,
+               food_id,
+               'number',
+               add_time
+        from cart_info
+    </select>
+    <select id="queryByCartIdAndFoodId" resultMap="CartInfoMap">
+        select id,
+               cart_id,
+               food_id,
+               'number',
+               add_time
+        from cart_info
+        where cart_id = #{cartId}
+        and food_id = #{foodId}
+    </select>
+    <select id="queryByCartId" resultMap="CartInfoMap">
+        select id,
+               cart_id,
+               food_id,
+               'number',
+               add_time
+        from cart_info
+        where cart_id = #{cartId}
+    </select>
+
     <!--新增所有列-->
     <insert id="insert" keyProperty="id" useGeneratedKeys="true">
-        insert into cart_info(cart_id, food_id, number, add_time)
+        insert into cart_info(cart_id, food_id, 'number', add_time)
         values (#{cartId}, #{foodId}, #{number}, #{addTime})
     </insert>
 
     <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
-        insert into cart_info(cart_id, food_id, number, add_time)
+        insert into cart_info(cart_id, food_id, 'number', add_time)
         values
         <foreach collection="entities" item="entity" separator=",">
             (#{entity.cartId}, #{entity.foodId}, #{entity.number}, #{entity.addTime})
@@ -92,7 +121,7 @@
         on duplicate key update
         cart_id = values(cart_id),
         food_id = values(food_id),
-        number = values(number),
+        'number' = values(number),
         add_time = values(add_time)
     </insert>
 
@@ -107,7 +136,7 @@
                 food_id = #{foodId},
             </if>
             <if test="number != null">
-                number = #{number},
+                'number' = #{number},
             </if>
             <if test="addTime != null">
                 add_time = #{addTime},

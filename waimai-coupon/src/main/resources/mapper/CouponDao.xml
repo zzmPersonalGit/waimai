@@ -1,0 +1,220 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaicoupon.dao.CouponDao">
+
+    <resultMap type="com.example.waimaicoupon.entity.Coupon" id="CouponMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="couponId" column="coupon_id" jdbcType="VARCHAR"/>
+        <result property="shopId" column="shop_id" jdbcType="INTEGER"/>
+        <result property="type" column="type" jdbcType="INTEGER"/>
+        <result property="title" column="title" jdbcType="VARCHAR"/>
+        <result property="targetMoney" column="target_money" jdbcType="INTEGER"/>
+        <result property="discountMoney" column="discount_money" jdbcType="INTEGER"/>
+        <result property="endTime" column="end_time" jdbcType="TIMESTAMP"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+        <result property="number" column="number" jdbcType="VARCHAR"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CouponMap">
+        select id,
+               coupon_id,
+               shop_id,
+               type,
+               title,
+               target_money,
+               discount_money,
+               end_time,
+               add_time,
+               number,
+               status
+        from coupon
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CouponMap">
+        select
+        id, coupon_id, shop_id, type, title, target_money, discount_money, end_time, add_time, number, status
+        from coupon
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="couponId != null and couponId != ''">
+                and coupon_id = #{couponId}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="targetMoney != null">
+                and target_money = #{targetMoney}
+            </if>
+            <if test="discountMoney != null">
+                and discount_money = #{discountMoney}
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+            <if test="number != null and number != ''">
+                and number = #{number}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from coupon
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="couponId != null and couponId != ''">
+                and coupon_id = #{couponId}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="type != null">
+                and type = #{type}
+            </if>
+            <if test="title != null and title != ''">
+                and title = #{title}
+            </if>
+            <if test="targetMoney != null">
+                and target_money = #{targetMoney}
+            </if>
+            <if test="discountMoney != null">
+                and discount_money = #{discountMoney}
+            </if>
+            <if test="endTime != null">
+                and end_time = #{endTime}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+            <if test="number != null and number != ''">
+                and number = #{number}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+        </where>
+    </select>
+    <select id="queryByShopId" resultMap="CouponMap">
+        select id,
+               coupon_id,
+               shop_id,
+               type,
+               title,
+               target_money,
+               discount_money,
+               end_time,
+               add_time,
+               number,
+               status
+        from coupon
+        where shop_id = #{shopId}
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into coupon(coupon_id, shop_id, type, title, target_money, discount_money, end_time, add_time, number,
+                           status)
+        values (#{couponId}, #{shopId}, #{type}, #{title}, #{targetMoney}, #{discountMoney}, #{endTime}, #{addTime},
+                #{number}, #{status})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into coupon(coupon_id, shop_id, type, title, target_money, discount_money, end_time, add_time, number,
+        status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.couponId}, #{entity.shopId}, #{entity.type}, #{entity.title}, #{entity.targetMoney},
+            #{entity.discountMoney}, #{entity.endTime}, #{entity.addTime}, #{entity.number}, #{entity.status})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into coupon(coupon_id, shop_id, type, title, target_money, discount_money, end_time, add_time, number,
+        status)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.couponId}, #{entity.shopId}, #{entity.type}, #{entity.title}, #{entity.targetMoney},
+            #{entity.discountMoney}, #{entity.endTime}, #{entity.addTime}, #{entity.number}, #{entity.status})
+        </foreach>
+        on duplicate key update
+        coupon_id = values(coupon_id),
+        shop_id = values(shop_id),
+        type = values(type),
+        title = values(title),
+        target_money = values(target_money),
+        discount_money = values(discount_money),
+        end_time = values(end_time),
+        add_time = values(add_time),
+        number = values(number),
+        status = values(status)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update coupon
+        <set>
+            <if test="couponId != null and couponId != ''">
+                coupon_id = #{couponId},
+            </if>
+            <if test="shopId != null">
+                shop_id = #{shopId},
+            </if>
+            <if test="type != null">
+                type = #{type},
+            </if>
+            <if test="title != null and title != ''">
+                title = #{title},
+            </if>
+            <if test="targetMoney != null">
+                target_money = #{targetMoney},
+            </if>
+            <if test="discountMoney != null">
+                discount_money = #{discountMoney},
+            </if>
+            <if test="endTime != null">
+                end_time = #{endTime},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+            <if test="number != null and number != ''">
+                number = #{number},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from coupon
+        where id = #{id}
+    </delete>
+
+</mapper>
+

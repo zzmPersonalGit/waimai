@@ -1,6 +1,6 @@
 server:
   port:
-    8082
+    8083
 spring:
   application:
     name: orderservice # 项目名称（nacos 注册的服务名）

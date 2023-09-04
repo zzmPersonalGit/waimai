@@ -9,6 +9,7 @@
         <outputRelativeToContentRoot value="true" />
         <module name="waimai-shop" />
         <module name="waimai-commodity" />
+        <module name="waimai-coupon" />
         <module name="waimai-admin" />
         <module name="waimai-pay" />
         <module name="waimai-user" />
@@ -21,6 +22,7 @@
     <option name="ADDITIONAL_OPTIONS_OVERRIDE">
       <module name="waimai-admin" options="-parameters" />
       <module name="waimai-commodity" options="-parameters" />
+      <module name="waimai-coupon" options="-parameters" />
       <module name="waimai-deliver" options="-parameters" />
       <module name="waimai-order" options="-parameters" />
       <module name="waimai-pay" options="-parameters" />

@@ -2,6 +2,7 @@ package com.example.waimaiorder.common.util;
 
 import com.alibaba.fastjson2.JSON;
 import com.example.waimaiorder.entity.Cart;
+import com.example.waimaiorder.entity.CartInfo;
 import com.example.waimaiorder.entity.Food;
 import org.springframework.stereotype.Component;
 
@@ -51,4 +52,7 @@ public class ConvertUtil<T> {
     }
 
 
+    public CartInfo objToCartInfo(Object obj) {
+        return JSON.parseObject(obj.toString(), CartInfo.class);
+    }
 }

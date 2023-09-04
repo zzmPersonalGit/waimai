@@ -28,6 +28,7 @@ public class RedisUtil {
         }
     }
 
+    /*获取String数据*/
     public String get(String key,int indexDB) {
         Jedis jedis = null;
         String value = null;
@@ -44,6 +45,7 @@ public class RedisUtil {
         return value;
     }
 
+    /*添加String数据*/
     public String set(String key, String value,int indexDB) {
         Jedis jedis = null;
         try {
@@ -58,6 +60,7 @@ public class RedisUtil {
         }
     }
 
+    /*添加map数据*/
     public String setHash(String key ,Map map ,int indexDB){
 
         Jedis jedis = null;
@@ -73,6 +76,7 @@ public class RedisUtil {
         }
     }
 
+    /*获取map数据*/
     public List getHash(String key ,int indexDB ,String field){
 
         Jedis jedis = null;
@@ -89,6 +93,25 @@ public class RedisUtil {
         }
         return value;
     }
+
+    /*获取map数据*/
+    public List getHashAll(String key, int indexDB){
+        Jedis jedis = null;
+        List value = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            value =  jedis.hmget(key);
+            log.info(value.toString());
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        } finally {
+            returnResource(jedis);
+        }
+        return value;
+    }
+
+    /**/
 
     /**
      * @description:
@@ -110,7 +133,7 @@ public class RedisUtil {
     }
 
     /*判断某个key是否存在*/
-    public Boolean exist(String key , int indexDB){
+    public Boolean exist(String key, Integer indexDB){
 
         Jedis jedis = null;
         try {
@@ -124,5 +147,36 @@ public class RedisUtil {
             returnResource(jedis);
         }
     }
+
+    /*判断map中某个key是否存在*/
+    public Boolean hexist(String key, Integer indexDB, String field){
+
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.hexists(key, field);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return false;
+        } finally {
+            returnResource(jedis);
+        }
+    }
+
+    public Long remove(String key, Integer indexDB){
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.del(key);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return 0L;
+        } finally {
+            returnResource(jedis);
+        }
+    }
 }
+
 

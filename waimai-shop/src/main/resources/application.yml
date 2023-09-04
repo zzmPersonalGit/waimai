@@ -1,6 +1,6 @@
 server:
   port:
-    8081
+    8082
 spring:
   application:
     name: shopservice # 项目名称（nacos 注册的服务名）

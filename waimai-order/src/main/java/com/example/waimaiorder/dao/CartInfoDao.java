@@ -80,5 +80,13 @@ public interface CartInfoDao {
      */
     int deleteById(Integer id);
 
+    /**
+     * 查找cartInfo表所有信息
+     */
+    List<CartInfo> queryAll();
+
+    CartInfo queryByCartIdAndFoodId(Integer cartId, Integer foodId);
+
+    List<CartInfo> queryByCartId(Integer cartId);
 }
 

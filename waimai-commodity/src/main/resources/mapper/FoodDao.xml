@@ -294,6 +294,18 @@
         where id = #{id}
     </update>
 
+    <update id="updateForList">
+        update food
+        <foreach collection="foodList" item="food" separator=",">
+            <set>
+                limit_num = #{food.limitNum}
+            </set>
+            where id = #{food.id}
+        </foreach>
+
+
+    </update>
+
     <!--通过主键删除-->
     <delete id="deleteById">
         delete

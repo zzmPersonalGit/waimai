@@ -147,5 +147,66 @@ public class RedisUtil {
             returnResource(jedis);
         }
     }
+
+    /*判断map中某个key是否存在*/
+    public Boolean hexist(String key, Integer indexDB, String field){
+
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.hexists(key, field);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return false;
+        } finally {
+            returnResource(jedis);
+        }
+    }
+
+    /*删除key*/
+    public Long remove(String key, Integer indexDB){
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.del(key);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return 0L;
+        } finally {
+            returnResource(jedis);
+        }
+    }
+
+    /*更新单条数据*/
+    public Long updateSingle(String key, Integer indexDB, String field, String value){
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.hset(key, field, value);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return 0L;
+        } finally {
+            returnResource(jedis);
+        }
+    }
+
+    /*删除map中的某个元素*/
+    public Long delSingle(String key, Integer indexDB, String field){
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.hdel(key, field);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return 0L;
+        } finally {
+            returnResource(jedis);
+        }
+    }
 }
 

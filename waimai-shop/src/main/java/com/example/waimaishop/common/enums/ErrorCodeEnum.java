@@ -21,7 +21,8 @@ public enum ErrorCodeEnum {
     DELIVER_MSG_UPDATA_ERROR(10009,"信息更新失败"),
     DELIVER_LINCENSE_MSG_ERROR(10010,"认证提交失败");*/
 
-    SHOPINFO_NOT_EXIST(30001, "商铺信息不存在");
+    SHOPINFO_NOT_EXIST(30001, "商铺信息不存在"),
+    SHOP_NOT_EXIST(30002,"商品信息不存在");
 
     Integer code;
     String msg;

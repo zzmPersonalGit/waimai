@@ -8,6 +8,7 @@ import org.springframework.web.bind.annotation.PostMapping;
 import org.springframework.web.bind.annotation.RestController;
 
 import java.util.ArrayList;
+import java.util.concurrent.ExecutionException;
 
 @RestController("/order")
 public class OrderController {
@@ -15,10 +16,17 @@ public class OrderController {
     @Autowired
     private OrderService orderService;
 
+    /*单个商品直接购买*/
     @PostMapping("/add")
-    public Result addOrder(ArrayList<Integer> foodIdList){
+    public Result addOrder(Integer foodId, Integer foodNumber) throws ExecutionException, InterruptedException {
 
-        return orderService.addOrder(foodIdList);
+        return orderService.addOrder(foodId, foodNumber);
+    }
+
+    /*购物车添加订单*/
+    @PostMapping("/add/OrderForCart")
+    public Result addOrderForCart(Integer cartId){
+        return orderService.addOrderForCart(cartId);
     }
 
 

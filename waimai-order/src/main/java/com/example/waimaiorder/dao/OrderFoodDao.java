@@ -71,5 +71,11 @@ public interface OrderFoodDao {
      */
     int deleteById(Integer id);
 
+    List<OrderFood> queryAll();
+
+    Integer queryByOrderIdAndFoodId(String orderId, Integer foodId);
+
+    List<OrderFood> queryByOrderId(String orderId);
+
 }
 

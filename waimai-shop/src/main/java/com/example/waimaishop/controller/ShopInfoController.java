@@ -19,9 +19,8 @@ public class ShopInfoController {
     private ConvertUtil convertUtil;
 
     @PostMapping("/shopinfoservice")
-    public Result shopinfoservice(@RequestBody String shopIdList){
+    public Result shopinfoservice(Integer shopId){
 
-        List list = convertUtil.StringToList(shopIdList, new Integer(1));
-        return shopInfoService.findShopInfoByShopId(list);
+        return shopInfoService.findShopInfoByShopId(shopId);
     }
 }

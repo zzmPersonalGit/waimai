@@ -26,10 +26,18 @@ public class UserController {
     @Autowired
     private UserService userService;
 
+    @PostMapping("findUser/username")
     /*根据username查找user信息*/
     public User queryByUsername(String username){
 
         return userService.queryByUsername(username);
+    }
+
+    @PostMapping("findUser/userid")
+    /*根据username查找user信息*/
+    public User queryByUserId(Integer userId){
+
+        return userService.queryByUserId(userId);
     }
 }
 

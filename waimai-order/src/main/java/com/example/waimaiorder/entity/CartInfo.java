@@ -1,5 +1,7 @@
 package com.example.waimaiorder.entity;
 
+import lombok.Data;
+
 import java.util.Date;
 import java.io.Serializable;
 
@@ -9,6 +11,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2023-08-21 13:50:52
  */
+@Data
 public class CartInfo implements Serializable {
     private static final long serialVersionUID = -64327351217428505L;
 
@@ -30,46 +33,13 @@ public class CartInfo implements Serializable {
      */
     private Date addTime;
 
-
-    public Integer getId() {
-        return id;
-    }
-
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public Integer getCartId() {
-        return cartId;
-    }
-
-    public void setCartId(Integer cartId) {
+    public void addCartInfo(Integer cartId, Integer foodId, Integer number, Date date){
         this.cartId = cartId;
-    }
-
-    public Integer getFoodId() {
-        return foodId;
-    }
-
-    public void setFoodId(Integer foodId) {
         this.foodId = foodId;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
         this.number = number;
+        this.addTime = date;
     }
 
-    public Date getAddTime() {
-        return addTime;
-    }
-
-    public void setAddTime(Date addTime) {
-        this.addTime = addTime;
-    }
 
 }
 

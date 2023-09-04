@@ -6,6 +6,7 @@
       <list>
         <option value="$PROJECT_DIR$/pom.xml" />
         <option value="$PROJECT_DIR$/waimai-user/pom.xml" />
+        <option value="$PROJECT_DIR$/waimai-coupon/pom.xml" />
       </list>
     </option>
   </component>

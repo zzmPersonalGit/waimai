@@ -20,4 +20,7 @@ public interface UserService {
     Boolean logout();
 
     User queryByUsername(String username);
+
+    User queryByUserId(Integer userId);
+
 }

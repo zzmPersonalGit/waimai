@@ -15,4 +15,10 @@ public final class Cons {
     public static final String CARTKEY = "cartkey";
     //cookie中token名
     public static final String TOKENINCOOKIENAME = "token";
+    //cartInfo表在redis中的key
+    public static final String CARTINFOKEY = "cartinfo";
+    public static final String ORDERKEY = "orderkey";
+    public static final String ORDERFOODKEY = "orderfood";
+    //user表在redis中的key
+    public static final String USERLISTKEY = "userlistkey";
 }

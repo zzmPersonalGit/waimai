@@ -1,6 +1,7 @@
 package com.example.waimaicommodity.common.util;
 
 import lombok.extern.slf4j.Slf4j;
+import org.aspectj.lang.annotation.Before;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.data.redis.core.RedisTemplate;
 import org.springframework.stereotype.Component;
@@ -22,13 +23,15 @@ public class RedisUtil {
      * @description:
      * 返还连接到连接池
      */
+
+
     public static void returnResource(Jedis jedis) {
         if (jedis != null) {
             jedis.close();
         }
     }
 
-    /*获取String类型数据*/
+    /*获取String数据*/
     public String get(String key,int indexDB) {
         Jedis jedis = null;
         String value = null;
@@ -45,7 +48,7 @@ public class RedisUtil {
         return value;
     }
 
-    /*添加String类型数据*/
+    /*添加String数据*/
     public String set(String key, String value,int indexDB) {
         Jedis jedis = null;
         try {
@@ -76,7 +79,7 @@ public class RedisUtil {
         }
     }
 
-    /*获取map类型数据*/
+    /*获取map数据*/
     public List getHash(String key ,int indexDB ,String field){
 
         Jedis jedis = null;
@@ -93,6 +96,25 @@ public class RedisUtil {
         }
         return value;
     }
+
+    /*获取map数据*/
+    public List getHashAll(String key, int indexDB){
+        Jedis jedis = null;
+        List value = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            value =  jedis.hmget(key);
+            log.info(value.toString());
+        } catch (Exception e) {
+            log.error(e.getMessage());
+        } finally {
+            returnResource(jedis);
+        }
+        return value;
+    }
+
+    /**/
 
     /**
      * @description:
@@ -112,5 +134,66 @@ public class RedisUtil {
             returnResource(jedis);
         }
     }
+
+    /*判断某个key是否存在*/
+    public Boolean exist(String key, Integer indexDB){
+
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.exists(key);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return false;
+        } finally {
+            returnResource(jedis);
+        }
+    }
+
+    /*判断map中某个key是否存在*/
+    public Boolean hexist(String key, Integer indexDB, String field){
+
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.hexists(key, field);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return false;
+        } finally {
+            returnResource(jedis);
+        }
+    }
+
+    public Long remove(String key, Integer indexDB){
+        Jedis jedis = null;
+        try {
+            jedis = jedisPool.getResource();
+            jedis.select(indexDB);
+            return jedis.del(key);
+        } catch (Exception e) {
+            log.error(e.getMessage());
+            return 0L;
+        } finally {
+            returnResource(jedis);
+        }
+    }
+
+    /*更新单条数据*/
+     public Long updateSingle(String key, Integer indexDB, String field, String value){
+         Jedis jedis = null;
+         try {
+             jedis = jedisPool.getResource();
+             jedis.select(indexDB);
+             return jedis.hset(key, field, value);
+         } catch (Exception e) {
+             log.error(e.getMessage());
+             return 0L;
+         } finally {
+             returnResource(jedis);
+         }
+     }
 }
 

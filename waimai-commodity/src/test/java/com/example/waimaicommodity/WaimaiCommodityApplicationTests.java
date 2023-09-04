@@ -1,12 +1,10 @@
 package com.example.waimaicommodity;
 
 import com.alibaba.fastjson2.JSON;
-import com.example.waimaicommodity.common.response.Result;
 import com.example.waimaicommodity.common.util.ConvertUtil;
 import com.example.waimaicommodity.common.util.RedisUtil;
 import com.example.waimaicommodity.entity.Food;
 import com.example.waimaicommodity.service.FoodService;
-import org.checkerframework.checker.units.qual.A;
 import org.junit.jupiter.api.Test;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.boot.test.context.SpringBootTest;
@@ -27,6 +25,8 @@ class WaimaiCommodityApplicationTests {
 
 	@Autowired
 	private RedisUtil redisUtil;
+
+
 
 	@Test
 	void contextLoads() {
@@ -77,5 +77,7 @@ class WaimaiCommodityApplicationTests {
 			System.out.println(food);
 		}
 	}
+
+
 
 }

@@ -17,6 +17,7 @@
         <module>waimai-pay</module>
         <module>waimai-shop</module>
         <module>waimai-user</module>
+        <module>waimai-coupon</module>
     </modules>
 
     <properties>

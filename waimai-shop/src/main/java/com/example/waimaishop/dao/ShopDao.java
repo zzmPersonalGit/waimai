@@ -80,5 +80,10 @@ public interface ShopDao {
      */
     int deleteById(Integer id);
 
+    /**
+     *
+     * @param
+     * @return 对象列表*/
+    List<Shop> queryByAll();
 }
 

@@ -21,7 +21,10 @@ public enum ErrorCodeEnum {
     DELIVER_MSG_UPDATA_ERROR(10009,"信息更新失败"),
     DELIVER_LINCENSE_MSG_ERROR(10010,"认证提交失败")*/
 
-    REDIS_ADD_ERROR(20001,"数据存入缓存失败");
+    REDIS_ADD_ERROR(20001,"数据存入缓存失败"),
+    FOOD_UPDATE_ERROR(20002,"食品数据更新失败"),
+    FOOD_ROLLBACK_ERROR(20003, "数据回滚失败"),
+    FOOD_MSG_IS_NULL(20004, "食品数据为空");
 
     Integer code;
     String msg;

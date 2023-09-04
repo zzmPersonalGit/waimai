@@ -1,5 +1,7 @@
 package com.example.waimaiorder.entity;
 
+import lombok.Data;
+
 import java.io.Serializable;
 
 /**
@@ -8,6 +10,7 @@ import java.io.Serializable;
  * @author makejava
  * @since 2023-08-17 18:08:14
  */
+@Data
 public class OrderFood implements Serializable {
     private static final long serialVersionUID = 389715832681510890L;
     /**
@@ -41,96 +44,21 @@ public class OrderFood implements Serializable {
     /**
      * 原价
      */
-    private Integer originPrice;
+    private Double originPrice;
     /**
      * 售价
      */
-    private Integer sellPrice;
+    private Double sellPrice;
     /**
      * 下单数量
      */
     private Integer number;
 
+    public void addOrderFoodMsg(String orderId, Integer number, Integer foodId, String title, String cover,
+                                String shopname, Integer shopId, Double originPrice, Double sellPrice){
 
-    public Integer getId() {
-        return id;
     }
 
-    public void setId(Integer id) {
-        this.id = id;
-    }
-
-    public String getOrderId() {
-        return orderId;
-    }
-
-    public void setOrderId(String orderId) {
-        this.orderId = orderId;
-    }
-
-    public Integer getShopId() {
-        return shopId;
-    }
-
-    public void setShopId(Integer shopId) {
-        this.shopId = shopId;
-    }
-
-    public String getShopname() {
-        return shopname;
-    }
-
-    public void setShopname(String shopname) {
-        this.shopname = shopname;
-    }
-
-    public Integer getFoodId() {
-        return foodId;
-    }
-
-    public void setFoodId(Integer foodId) {
-        this.foodId = foodId;
-    }
-
-    public String getTitle() {
-        return title;
-    }
-
-    public void setTitle(String title) {
-        this.title = title;
-    }
-
-    public String getCover() {
-        return cover;
-    }
-
-    public void setCover(String cover) {
-        this.cover = cover;
-    }
-
-    public Integer getOriginPrice() {
-        return originPrice;
-    }
-
-    public void setOriginPrice(Integer originPrice) {
-        this.originPrice = originPrice;
-    }
-
-    public Integer getSellPrice() {
-        return sellPrice;
-    }
-
-    public void setSellPrice(Integer sellPrice) {
-        this.sellPrice = sellPrice;
-    }
-
-    public Integer getNumber() {
-        return number;
-    }
-
-    public void setNumber(Integer number) {
-        this.number = number;
-    }
 
 }
 

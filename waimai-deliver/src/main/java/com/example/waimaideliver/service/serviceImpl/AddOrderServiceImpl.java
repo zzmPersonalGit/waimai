@@ -1,5 +1,6 @@
 package com.example.waimaideliver.service.serviceImpl;
 
+import com.example.waimaideliver.common.enums.MyException;
 import com.example.waimaideliver.common.redission.RedissonLockUtils;
 import com.example.waimaideliver.common.response.Result;
 import com.example.waimaideliver.service.AddOrderService;

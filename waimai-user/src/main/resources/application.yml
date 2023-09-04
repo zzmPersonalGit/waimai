@@ -1,6 +1,6 @@
 server:
   port:
-    8081
+    8084
 spring:
   application:
     name: userservice # 项目名称（nacos 注册的服务名）

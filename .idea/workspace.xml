@@ -4,257 +4,192 @@
     <option name="autoReloadType" value="SELECTIVE" />
   </component>
   <component name="ChangeListManager">
-    <list default="true" id="24e84833-5605-4d1c-9951-c2adf16ae916" name="Changes" comment="">
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources.local.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e24873f0-1e46-4e4e-91ab-a99747cc6ff7.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e24873f0-1e46-4e4e-91ab-a99747cc6ff7/storage_v2/_src_/schema/information_schema.FNRwLQ.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e24873f0-1e46-4e4e-91ab-a99747cc6ff7/storage_v2/_src_/schema/mysql.osA4Bg.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e24873f0-1e46-4e4e-91ab-a99747cc6ff7/storage_v2/_src_/schema/performance_schema.kIw0nw.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/dataSources/e24873f0-1e46-4e4e-91ab-a99747cc6ff7/storage_v2/_src_/schema/sys.zb4BAA.meta" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/util/ThreadPoolUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/src/main/java/com/example/waimaideliver/common/redission/RedissonLockUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/src/main/java/com/example/waimaideliver/config/RedissonConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/src/main/java/com/example/waimaideliver/controller/aorder.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/src/main/java/com/example/waimaideliver/service/AddOrderService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/src/main/java/com/example/waimaideliver/service/serviceImpl/AddOrderServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/application.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/bootstrap.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/WaimaiDeliverApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/Constants/Cons.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/Util/CreatVerCodeUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/Util/SMSUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/Util/imageProcessUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/Util/isValidPhoneNumberUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/aliyunmessage/SendSms.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/aliyunmessage/SendVerCode.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/enums/ErrorCodeEnum.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/enums/MyException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/intercerper/LoginIntercepter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/redission/RedissonLockUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/common/response/Result.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/config/LoginConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/config/MsgConverter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/config/RedissonConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/controller/DeliverMsg.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/controller/Register.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/controller/TestController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/controller/aorder.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/controller/loginController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/entity/Deliver.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/entity/DeliverLincense.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/mapper/DeliverDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/mapper/DeliverLincenseDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/AddOrderService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/DeliverLincenseService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/DeliverMsgService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/LoginService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/RegisterService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/serviceImpl/AddOrderServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/serviceImpl/DeliverLincenseServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/serviceImpl/DeliverMsgServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/serviceImpl/LoginServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/com/example/waimaideliver/service/serviceImpl/RegisterServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/mapper/DeliverDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/mapper/DeliverLincenseDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/classes/templates/login.html" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/test-classes/com/example/waimaideliver/ServiceTest.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/test-classes/com/example/waimaideliver/WaimaiDeliverApplicationTests$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/test-classes/com/example/waimaideliver/WaimaiDeliverApplicationTests$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-deliver/target/test-classes/com/example/waimaideliver/WaimaiDeliverApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/CookieUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/ThreadPoolUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/controller/CartController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/controller/CartInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/CartDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/CartInfoDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Cart.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/CartInfo.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/ShopserviceFeign.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/CartInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/CartService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/CartInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/CartServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/CartDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/CartInfoDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/WaimaiOrderApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/Constants/Cons.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/enums/ErrorCodeEnum.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/enums/MyException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/response/Result.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/ConvertUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/CookieUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/JwtUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/RedisUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/ThreadPoolUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/config/MQListenerConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/config/MsgConverter.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/controller/CartController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/controller/CartInfoController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/controller/OrderController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/CartDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/CartInfoDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderCommentDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderDetailDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderFoodDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderProcessDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderRefundDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Cart.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/CartInfo.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Food.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Order.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderComment.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderDetail.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderFood.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderProcess.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderRefund.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Pay.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/feignClient/CommondityserviceFeign.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/feignClient/ShopserviceFeign.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/CartInfoService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/CartService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/OrderService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartInfoServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/OrderServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/CartDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/CartInfoDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderCommentDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderDetailDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderFoodDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderProcessDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderRefundDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests$3.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/Constants/Cons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/enums/ErrorCodeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/enums/MyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/response/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/util/ConvertUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/util/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/controller/ShopController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/controller/ShopInfoController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/ShopInfoService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/ShopService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/serviceImpl/ShopInfoServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/serviceImpl/ShopServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/pom.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/WaimaiUserApplication.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/Constants/Cons.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/enums/ErrorCodeEnum.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/enums/MyException.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/response/Result.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/util/ConvertUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/util/CookieUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/util/JwtUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/util/RedisUtil.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/util/ThreadPoolUtils.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/config/RedisConfig.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/controller/UserAddressController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/controller/UserController.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/controller/UserLogin.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/dao/UserAddressDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/dao/UserDao.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/entity/User.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/entity/UserAddress.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/UserAddressService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/UserService.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/impl/UserAddressServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/impl/UserServiceImpl.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/resources/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/resources/mapper/UserAddressDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/main/resources/mapper/UserDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/src/test/java/com/example/waimaiuser/WaimaiUserApplicationTests.java" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/application.yml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/WaimaiUserApplication.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/Constants/Cons.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/enums/ErrorCodeEnum.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/enums/MyException.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/response/Result.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/util/ConvertUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/util/CookieUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/util/JwtUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/util/RedisUtil.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/common/util/ThreadPoolUtils.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/config/RedisConfig.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/controller/UserAddressController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/controller/UserController.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/controller/UserLogin.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/dao/UserAddressDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/dao/UserDao.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/entity/User.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/entity/UserAddress.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/service/UserAddressService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/service/UserService.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/service/impl/UserAddressServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/service/impl/UserServiceImpl$1.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/service/impl/UserServiceImpl$2.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/com/example/waimaiuser/service/impl/UserServiceImpl.class" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/mapper/UserAddressDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/classes/mapper/UserDao.xml" afterDir="false" />
-      <change afterPath="$PROJECT_DIR$/waimai-user/target/test-classes/com/example/waimaiuser/WaimaiUserApplicationTests.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.gitignore" beforeDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/.gitignore" beforeDir="false" />
+    <list default="true" id="24e84833-5605-4d1c-9951-c2adf16ae916" name="Changes" comment="Initial commit">
+      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/Constants/RabbitMQCons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/util/idUtil/MinuteCounter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/util/idUtil/SnowflakeIdWorker3rd.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/config/MsgConverter.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/entity/Order.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/entity/OrderFood.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-commodity/src/test/java/com/example/waimaicommodity/JUnit4Test.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/.mvn/wrapper/maven-wrapper.jar" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/.mvn/wrapper/maven-wrapper.properties" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/pom.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/WaimaiCouponApplication.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/Constants/Cons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/enums/ErrorCodeEnum.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/enums/MyException.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/response/Result.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/util/ConvertUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/util/CookieUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/util/CouponAcceptKeyUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/util/JwtUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/util/RedisUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/util/ThreadPoolUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/common/util/UUIDUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/config/RedisConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/controller/CouponAcceptController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/controller/CouponController.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/dao/CouponAcceptDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/dao/CouponDao.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/entity/Coupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/entity/CouponAccept.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/service/CouponAcceptService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/service/CouponService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/service/impl/CouponAcceptServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/java/com/example/waimaicoupon/service/impl/CouponServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/resources/application.yml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/resources/mapper/CouponAcceptDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/main/resources/mapper/CouponDao.xml" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-coupon/src/test/java/com/example/waimaicoupon/WaimaiCouponApplicationTests.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/Constants/RabbitMQCons.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/interceptor/UserTokenInterceptor.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/CartInfoKeyUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/RabbitMQSendAddOrderUtil.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/UUIDUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/UserUtils.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/config/RabbitMQConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/config/WebConfig.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Coupon.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Shop.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/ShopInfo.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/CouponFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/UserServiceFeign.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/OrderFoodService.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/OrderFoodServiceImpl.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-order/src/test/java/com/example/waimaiorder/OrderTest.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/util/ThreadPoolUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/compiler.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/compiler.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/.idea/dataSources.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/dataSources/e24873f0-1e46-4e4e-91ab-a99747cc6ff7.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/dataSources/e24873f0-1e46-4e4e-91ab-a99747cc6ff7.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/easyCodeTableSetting.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/encodings.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/encodings.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/.idea/misc.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/misc.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/Constants/Cons.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/Constants/Cons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-commodity/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/WaimaiCommodityApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/WaimaiCommodityApplication.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/enums/ErrorCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/enums/ErrorCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/util/ConvertUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/util/ConvertUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/util/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/common/util/RedisUtil.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/controller/FoodController.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/controller/FoodController.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/entity/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/entity/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/entity/FoodCategory.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/entity/FoodCategory.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/dao/FoodDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/dao/FoodDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/service/FoodService.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/service/FoodService.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/service/serviceImpl/FoodServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/java/com/example/waimaicommodity/service/serviceImpl/FoodServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-commodity/src/main/resources/mapper/FoodDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/main/resources/mapper/FoodDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-deliver/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-deliver/pom.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-deliver/src/test/java/com/example/waimaideliver/WaimaiDeliverApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-deliver/src/test/java/com/example/waimaideliver/WaimaiDeliverApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-commodity/src/test/java/com/example/waimaicommodity/WaimaiCommodityApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-commodity/src/test/java/com/example/waimaicommodity/WaimaiCommodityApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-deliver/src/main/java/com/example/waimaideliver/service/serviceImpl/AddOrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-deliver/src/main/java/com/example/waimaideliver/service/serviceImpl/AddOrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/pom.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/pom.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/WaimaiOrderApplication.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/WaimaiOrderApplication.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/Constants/Cons.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/Constants/Cons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/enums/ErrorCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/enums/ErrorCodeEnum.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/ConvertUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/ConvertUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/JwtUtils.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/common/util/RedisUtil.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Food.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Food.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/CommondityserviceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/CommondityserviceFeign.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/serviceImpl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/OrderServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/config/MQListenerConfig.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/config/MQListenerConfig.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/controller/OrderController.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/controller/OrderController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/CartInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/CartInfoDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/OrderDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/OrderDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/OrderFoodDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/dao/OrderFoodDao.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Cart.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Cart.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/CartInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/CartInfo.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Order.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/Order.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/OrderComment.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/OrderComment.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/OrderDetail.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/OrderDetail.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/OrderFood.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/entity/OrderFood.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/CommondityserviceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/CommondityServiceFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/ShopserviceFeign.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/feignClient/ShopServiceFeign.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/CartInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/CartInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/CartService.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/CartService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/OrderService.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/OrderService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/CartInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/CartInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/CartServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/CartServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/OrderServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/java/com/example/waimaiorder/service/impl/OrderServiceImpl.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/application.yml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderCommentDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderCommentDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/CartInfoDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/CartInfoDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderDetailDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderDetailDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderFoodDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderFoodDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderProcessDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderProcessDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderRefundDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/main/resources/mapper/OrderRefundDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-order/src/test/java/com/example/waimaiorder/WaimaiOrderApplicationTests.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-order/src/test/java/com/example/waimaiorder/WaimaiOrderApplicationTests.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/application.yml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/WaimaiOrderApplication.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/Constants/Cons.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/enums/ErrorCodeEnum.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/enums/MyException.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/response/Result.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/ConvertUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/CookieUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/JwtUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/RedisUtil.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/common/util/ThreadPoolUtils.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/config/MQListenerConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/config/MsgConverter.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/config/RedisConfig.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/controller/CartController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/controller/CartInfoController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/controller/OrderController.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/CartDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/CartInfoDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderCommentDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderDetailDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderFoodDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderProcessDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/dao/OrderRefundDao.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Cart.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/CartInfo.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Food.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Order.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderComment.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderDetail.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderFood.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderProcess.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/OrderRefund.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/Pay.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/entity/User.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/feignClient/CommondityserviceFeign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/feignClient/ShopserviceFeign.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/CartInfoService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/CartService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/OrderService.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartInfoServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/CartServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/com/example/waimaiorder/service/impl/OrderServiceImpl.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/CartDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/CartInfoDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderCommentDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderDetailDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderFoodDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderProcessDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/classes/mapper/OrderRefundDao.xml" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests$1.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests$2.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests$3.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-order/target/test-classes/com/example/waimaiorder/WaimaiOrderApplicationTests.class" beforeDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/Constants/Cons.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/Constants/Cons.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/enums/ErrorCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/enums/ErrorCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/util/RedisUtil.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/common/util/RedisUtil.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/controller/ShopController.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/controller/ShopController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/controller/ShopInfoController.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/controller/ShopInfoController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/dao/ShopDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/dao/ShopDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/dao/ShopInfoDao.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/dao/ShopInfoDao.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/Shop.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/Shop.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopActivity.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopActivity.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopCollect.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopCollect.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopInfo.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopInfo.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopLicense.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopLicense.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopLog.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/entity/ShopLog.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopActivityDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopActivityDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopCollectDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopCollectDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/ShopInfoService.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/ShopInfoService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/ShopService.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/ShopService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/serviceImpl/ShopInfoServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/serviceImpl/ShopInfoServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/serviceImpl/ShopServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/java/com/example/waimaishop/service/serviceImpl/ShopServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/resources/application.yml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopDao.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopInfoDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopInfoDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopLicenseDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopLicenseDao.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopLogDao.xml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-shop/src/main/resources/mapper/ShopLogDao.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/enums/ErrorCodeEnum.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/enums/ErrorCodeEnum.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/util/JwtUtils.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/common/util/JwtUtils.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/controller/UserController.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/controller/UserController.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/UserService.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/UserService.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/impl/UserServiceImpl.java" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-user/src/main/java/com/example/waimaiuser/service/impl/UserServiceImpl.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-user/src/main/resources/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-user/src/main/resources/application.yml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/waimai-user/target/classes/application.yml" beforeDir="false" afterPath="$PROJECT_DIR$/waimai-user/target/classes/application.yml" afterDir="false" />
     </list>
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
@@ -286,12 +221,15 @@
     </option>
   </component>
   <component name="ProjectId" id="2UEkoo87SWgj0a8EHHfEOu8RFce" />
-  <component name="ProjectLevelVcsManager" settingsEditedManually="true" />
+  <component name="ProjectLevelVcsManager" settingsEditedManually="true">
+    <ConfirmationsSetting value="2" id="Add" />
+  </component>
   <component name="ProjectViewState">
     <option name="showLibraryContents" value="true" />
   </component>
   <component name="PropertiesComponent"><![CDATA[{
   "keyToString": {
+    "ASKED_ADD_EXTERNAL_FILES": "true",
     "RequestMappingsPanelOrder0": "0",
     "RequestMappingsPanelOrder1": "1",
     "RequestMappingsPanelWidth0": "75",
@@ -300,12 +238,12 @@
     "RunOnceActivity.ShowReadmeOnStart": "true",
     "WebServerToolWindowFactoryState": "false",
     "jdk.selected.JAVA_MODULE": "11",
-    "last_opened_file_path": "D:/springCloudProject/waimai",
+    "last_opened_file_path": "D:/springCloudProject/waimai/waimai-commodity/src/main/java/com/example/waimaicommodity/config",
     "project.structure.last.edited": "Modules",
     "project.structure.proportion": "0.0",
     "project.structure.side.proportion": "0.0",
-    "settings.editor.selected.configurable": "project.propVCSSupport.DirectoryMappings",
-    "spring.configuration.checksum": "43ef7f92674d9f8acf49e26728e7579c"
+    "settings.editor.selected.configurable": "configurable.group.build",
+    "spring.configuration.checksum": "06bc28f95f949c111177734d8ed0e28e"
   },
   "keyToStringList": {
     "DatabaseDriversLRU": [
@@ -315,12 +253,16 @@
 }]]></component>
   <component name="RecentsManager">
     <key name="CopyFile.RECENT_KEYS">
+      <recent name="D:\springCloudProject\waimai\waimai-commodity\src\main\java\com\example\waimaicommodity\config" />
+      <recent name="D:\springCloudProject\waimai\waimai-coupon\src\main\java\com\example\waimaicoupon" />
       <recent name="D:\springCloudProject\waimai\waimai-user\src\main\java\com\example\waimaiuser" />
     </key>
     <key name="CopyClassDialog.RECENTS_KEY">
-      <recent name="com.example.waimaiuser.common.util" />
-      <recent name="com.example.waimaiorder.common.util" />
+      <recent name="com.example.waimaicommodity.entity" />
+      <recent name="com.example.waimaicommodity.common.Constants" />
+      <recent name="com.example.waimaicommodity.common.util" />
       <recent name="com.example.waimaiorder.entity" />
+      <recent name="com.example.waimaishop.common.util" />
     </key>
   </component>
   <component name="RunDashboard">
@@ -330,24 +272,40 @@
       </set>
     </option>
   </component>
-  <component name="RunManager" selected="JUnit.WaimaiOrderApplicationTests.RunnabTest">
-    <configuration name="WaimaiDeliverApplicationTests.lockTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="waimai-deliver" />
+  <component name="RunManager" selected="JUnit.OrderTest.addOrderTest">
+    <configuration name="JUnit4Test.er" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="waimai-commodity" />
       <extension name="coverage">
         <pattern>
-          <option name="PATTERN" value="com.example.waimaideliver.*" />
+          <option name="PATTERN" value="com.example.waimaicommodity.*" />
           <option name="ENABLED" value="true" />
         </pattern>
       </extension>
-      <option name="PACKAGE_NAME" value="com.example.waimaideliver" />
-      <option name="MAIN_CLASS_NAME" value="com.example.waimaideliver.WaimaiDeliverApplicationTests" />
-      <option name="METHOD_NAME" value="lockTest" />
+      <option name="PACKAGE_NAME" value="com.example.waimaicommodity" />
+      <option name="MAIN_CLASS_NAME" value="com.example.waimaicommodity.JUnit4Test" />
+      <option name="METHOD_NAME" value="er" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaimaiOrderApplicationTests.RunnabTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="JUnit4Test.test" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+      <module name="waimai-commodity" />
+      <extension name="coverage">
+        <pattern>
+          <option name="PATTERN" value="com.example.waimaicommodity.*" />
+          <option name="ENABLED" value="true" />
+        </pattern>
+      </extension>
+      <option name="PACKAGE_NAME" value="com.example.waimaicommodity" />
+      <option name="MAIN_CLASS_NAME" value="com.example.waimaicommodity.JUnit4Test" />
+      <option name="METHOD_NAME" value="test" />
+      <option name="TEST_OBJECT" value="method" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="OrderTest.addOrderTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="waimai-order" />
       <extension name="coverage">
         <pattern>
@@ -356,14 +314,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.waimaiorder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.waimaiorder.WaimaiOrderApplicationTests" />
-      <option name="METHOD_NAME" value="RunnabTest" />
+      <option name="MAIN_CLASS_NAME" value="com.example.waimaiorder.OrderTest" />
+      <option name="METHOD_NAME" value="addOrderTest" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaimaiOrderApplicationTests.redisTest" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderTest.te" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="waimai-order" />
       <extension name="coverage">
         <pattern>
@@ -372,14 +330,14 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.waimaiorder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.waimaiorder.WaimaiOrderApplicationTests" />
-      <option name="METHOD_NAME" value="redisTest" />
+      <option name="MAIN_CLASS_NAME" value="com.example.waimaiorder.OrderTest" />
+      <option name="METHOD_NAME" value="te" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
     </configuration>
-    <configuration name="WaimaiOrderApplicationTests.userUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
+    <configuration name="OrderTest.testUUIDUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
       <module name="waimai-order" />
       <extension name="coverage">
         <pattern>
@@ -388,24 +346,8 @@
         </pattern>
       </extension>
       <option name="PACKAGE_NAME" value="com.example.waimaiorder" />
-      <option name="MAIN_CLASS_NAME" value="com.example.waimaiorder.WaimaiOrderApplicationTests" />
-      <option name="METHOD_NAME" value="userUtil" />
-      <option name="TEST_OBJECT" value="method" />
-      <method v="2">
-        <option name="Make" enabled="true" />
-      </method>
-    </configuration>
-    <configuration name="WaimaiUserApplicationTests.userUtil" type="JUnit" factoryName="JUnit" temporary="true" nameIsGenerated="true">
-      <module name="waimai-user" />
-      <extension name="coverage">
-        <pattern>
-          <option name="PATTERN" value="com.example.waimaiuser.*" />
-          <option name="ENABLED" value="true" />
-        </pattern>
-      </extension>
-      <option name="PACKAGE_NAME" value="com.example.waimaiuser" />
-      <option name="MAIN_CLASS_NAME" value="com.example.waimaiuser.WaimaiUserApplicationTests" />
-      <option name="METHOD_NAME" value="userUtil" />
+      <option name="MAIN_CLASS_NAME" value="com.example.waimaiorder.OrderTest" />
+      <option name="METHOD_NAME" value="testUUIDUtil" />
       <option name="TEST_OBJECT" value="method" />
       <method v="2">
         <option name="Make" enabled="true" />
@@ -421,6 +363,13 @@
     <configuration name="WaimaiCommodityApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="waimai-commodity" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.waimaicommodity.WaimaiCommodityApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
+    <configuration name="WaimaiCouponApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="waimai-coupon" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.waimaicoupon.WaimaiCouponApplication" />
       <method v="2">
         <option name="Make" enabled="true" />
       </method>
@@ -446,6 +395,13 @@
         <option name="Make" enabled="true" />
       </method>
     </configuration>
+    <configuration name="WaimaiShopApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
+      <module name="waimai-shop" />
+      <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.waimaishop.WaimaiShopApplication" />
+      <method v="2">
+        <option name="Make" enabled="true" />
+      </method>
+    </configuration>
     <configuration name="WaimaiUserApplication" type="SpringBootApplicationConfigurationType" factoryName="Spring Boot">
       <module name="waimai-user" />
       <option name="SPRING_BOOT_MAIN_CLASS" value="com.example.waimaiuser.WaimaiUserApplication" />
@@ -454,11 +410,13 @@
       </method>
     </configuration>
     <list>
-      <item itemvalue="JUnit.WaimaiDeliverApplicationTests.lockTest" />
-      <item itemvalue="JUnit.WaimaiOrderApplicationTests.redisTest" />
-      <item itemvalue="JUnit.WaimaiOrderApplicationTests.RunnabTest" />
-      <item itemvalue="JUnit.WaimaiOrderApplicationTests.userUtil" />
-      <item itemvalue="JUnit.WaimaiUserApplicationTests.userUtil" />
+      <item itemvalue="JUnit.OrderTest.addOrderTest" />
+      <item itemvalue="JUnit.OrderTest.te" />
+      <item itemvalue="JUnit.JUnit4Test.er" />
+      <item itemvalue="JUnit.JUnit4Test.test" />
+      <item itemvalue="JUnit.OrderTest.testUUIDUtil" />
+      <item itemvalue="Spring Boot.WaimaiCouponApplication" />
+      <item itemvalue="Spring Boot.WaimaiShopApplication" />
       <item itemvalue="Spring Boot.WaimaiOrderApplication" />
       <item itemvalue="Spring Boot.WaimaiAdminApplication" />
       <item itemvalue="Spring Boot.WaimaiCommodityApplication" />
@@ -468,11 +426,11 @@
     </list>
     <recent_temporary>
       <list>
-        <item itemvalue="JUnit.WaimaiOrderApplicationTests.RunnabTest" />
-        <item itemvalue="JUnit.WaimaiUserApplicationTests.userUtil" />
-        <item itemvalue="JUnit.WaimaiOrderApplicationTests.userUtil" />
-        <item itemvalue="JUnit.WaimaiOrderApplicationTests.redisTest" />
-        <item itemvalue="JUnit.WaimaiDeliverApplicationTests.lockTest" />
+        <item itemvalue="JUnit.OrderTest.addOrderTest" />
+        <item itemvalue="JUnit.OrderTest.te" />
+        <item itemvalue="JUnit.OrderTest.testUUIDUtil" />
+        <item itemvalue="JUnit.JUnit4Test.er" />
+        <item itemvalue="JUnit.JUnit4Test.test" />
       </list>
     </recent_temporary>
   </component>
@@ -496,8 +454,31 @@
       <workItem from="1692631367326" duration="3195000" />
       <workItem from="1692755455404" duration="16773000" />
       <workItem from="1692802886995" duration="10501000" />
-      <workItem from="1692843473944" duration="6370000" />
+      <workItem from="1692843473944" duration="17124000" />
+      <workItem from="1692875183626" duration="11000" />
+      <workItem from="1692888548813" duration="1946000" />
+      <workItem from="1692919250661" duration="1412000" />
+      <workItem from="1693017278095" duration="9449000" />
+      <workItem from="1693039245376" duration="13123000" />
+      <workItem from="1693102079071" duration="14639000" />
+      <workItem from="1693143052712" duration="10206000" />
+      <workItem from="1693271884359" duration="26440000" />
+      <workItem from="1693359791835" duration="13400000" />
+      <workItem from="1693622174143" duration="99000" />
+      <workItem from="1693791125822" duration="5075000" />
+      <workItem from="1693796226229" duration="14390000" />
+      <workItem from="1693839908448" duration="364000" />
+      <workItem from="1693840290003" duration="87000" />
+      <workItem from="1693840391387" duration="339000" />
     </task>
+    <task id="LOCAL-00001" summary="Initial commit">
+      <created>1692849952346</created>
+      <option name="number" value="00001" />
+      <option name="presentableId" value="LOCAL-00001" />
+      <option name="project" value="LOCAL" />
+      <updated>1692849952346</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="TypeScriptGeneratedFilesManager">
@@ -515,9 +496,12 @@
     </option>
   </component>
   <component name="VcsManagerConfiguration">
+    <option name="ADD_EXTERNAL_FILES_SILENTLY" value="true" />
     <ignored-roots>
       <path value="$PROJECT_DIR$" />
     </ignored-roots>
+    <MESSAGE value="Initial commit" />
+    <option name="LAST_COMMIT_MESSAGE" value="Initial commit" />
   </component>
   <component name="XDebuggerManager">
     <breakpoint-manager>
@@ -528,5 +512,9 @@
         </breakpoint>
       </breakpoints>
     </breakpoint-manager>
+  </component>
+  <component name="XSLT-Support.FileAssociations.UIState">
+    <expand />
+    <select />
   </component>
 </project>
