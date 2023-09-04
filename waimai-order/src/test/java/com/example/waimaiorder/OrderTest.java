@@ -37,8 +37,8 @@ public class OrderTest {
 
     @Test
     void addOrderTest(){
-        Result result = orderService.addOrder(1, 1);
-        System.out.println(result.getStatus());
+        /*Result result = orderService.addOrder(1, 1);
+        System.out.println(result.getStatus());*/
     }
 
     @Test

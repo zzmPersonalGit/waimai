@@ -1,0 +1,49 @@
+server:
+  port:
+    8082
+spring:
+  application:
+    name: shopservice # 项目名称（nacos 注册的服务名）
+    profiles:
+      active: dev #开发环境，这里是dev
+    cloud:
+      nacos:
+        discovery:
+          username: nacos # nacos 登录用户名
+          password: nacos # nacos 密码
+          server-addr: localhost:8848 # nacos 服务端地址
+          config:
+            file-extension: yaml # 文件后缀名
+            namespace: dev
+  datasource:
+    url: jdbc:mysql://192.168.60.131:3306/waimai?useSSL=false&allowPublicKeyRetrieval=true
+    username: root
+    password: 123456
+    driver-class-name: com.mysql.cj.jdbc.Driver
+  rabbitmq:
+    host: 192.168.60.131 # rabbitMQ的ip地址
+    port: 5672 # 端口
+    username: zzm
+    password: zzm123456
+    virtual-host: /
+  redis:
+    host: 192.168.60.131
+    port: 6379
+    password: 123456
+    jedis:
+      pool:
+        max-active: 8
+        max-idle: 8
+        max-wait: 100ms
+        min-idle: 0
+
+mybatis:
+  mapper-locations: classpath:/mapper/*.xml
+  configuration:
+    map-underscore-to-camel-case: true
+
+logging:
+  level:
+    com.example.waimaiorder.mapper: debug
+  pattern:
+    dateformat: MM-dd HH:mm:ss:SSS

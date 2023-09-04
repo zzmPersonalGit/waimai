@@ -1,0 +1,208 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaishop.dao.ShopDao">
+
+    <resultMap type="com.example.waimaishop.entity.Shop" id="ShopMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="shopname" column="shopname" jdbcType="VARCHAR"/>
+        <result property="mobile" column="mobile" jdbcType="VARCHAR"/>
+        <result property="password" column="password" jdbcType="VARCHAR"/>
+        <result property="email" column="email" jdbcType="VARCHAR"/>
+        <result property="loginInfo" column="login_info" jdbcType="VARCHAR"/>
+        <result property="numLoginError" column="num_login_error" jdbcType="INTEGER"/>
+        <result property="timeLoginLock" column="time_login_lock" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ShopMap">
+        select id,
+               shopname,
+               mobile,
+               password,
+               email,
+               login_info,
+               num_login_error,
+               time_login_lock,
+               status,
+               add_time
+        from shop
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ShopMap">
+        select
+        id, shopname, mobile, password, email, login_info, num_login_error, time_login_lock, status, add_time
+        from shop
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="shopname != null and shopname != ''">
+                and shopname = #{shopname}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="loginInfo != null and loginInfo != ''">
+                and login_info = #{loginInfo}
+            </if>
+            <if test="numLoginError != null">
+                and num_login_error = #{numLoginError}
+            </if>
+            <if test="timeLoginLock != null">
+                and time_login_lock = #{timeLoginLock}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from shop
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="shopname != null and shopname != ''">
+                and shopname = #{shopname}
+            </if>
+            <if test="mobile != null and mobile != ''">
+                and mobile = #{mobile}
+            </if>
+            <if test="password != null and password != ''">
+                and password = #{password}
+            </if>
+            <if test="email != null and email != ''">
+                and email = #{email}
+            </if>
+            <if test="loginInfo != null and loginInfo != ''">
+                and login_info = #{loginInfo}
+            </if>
+            <if test="numLoginError != null">
+                and num_login_error = #{numLoginError}
+            </if>
+            <if test="timeLoginLock != null">
+                and time_login_lock = #{timeLoginLock}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+
+    <!--查找所有-->
+    <select id="queryByAll" resultMap="ShopMap">
+        select id,
+               shopname,
+               mobile,
+               password,
+               email,
+               login_info,
+               num_login_error,
+               time_login_lock,
+               status,
+               add_time
+        from shop
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into shop(shopname, mobile, password, email, login_info, num_login_error, time_login_lock, status,
+                         add_time)
+        values (#{shopname}, #{mobile}, #{password}, #{email}, #{loginInfo}, #{numLoginError}, #{timeLoginLock},
+                #{status}, #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shop(shopname, mobile, password, email, login_info, num_login_error, time_login_lock, status,
+        add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.shopname}, #{entity.mobile}, #{entity.password}, #{entity.email}, #{entity.loginInfo},
+            #{entity.numLoginError}, #{entity.timeLoginLock}, #{entity.status}, #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shop(shopname, mobile, password, email, login_info, num_login_error, time_login_lock, status,
+        add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.shopname}, #{entity.mobile}, #{entity.password}, #{entity.email}, #{entity.loginInfo},
+            #{entity.numLoginError}, #{entity.timeLoginLock}, #{entity.status}, #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        shopname = values(shopname),
+        mobile = values(mobile),
+        password = values(password),
+        email = values(email),
+        login_info = values(login_info),
+        num_login_error = values(num_login_error),
+        time_login_lock = values(time_login_lock),
+        status = values(status),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shop
+        <set>
+            <if test="shopname != null and shopname != ''">
+                shopname = #{shopname},
+            </if>
+            <if test="mobile != null and mobile != ''">
+                mobile = #{mobile},
+            </if>
+            <if test="password != null and password != ''">
+                password = #{password},
+            </if>
+            <if test="email != null and email != ''">
+                email = #{email},
+            </if>
+            <if test="loginInfo != null and loginInfo != ''">
+                login_info = #{loginInfo},
+            </if>
+            <if test="numLoginError != null">
+                num_login_error = #{numLoginError},
+            </if>
+            <if test="timeLoginLock != null">
+                time_login_lock = #{timeLoginLock},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from shop
+        where id = #{id}
+    </delete>
+
+</mapper>
+

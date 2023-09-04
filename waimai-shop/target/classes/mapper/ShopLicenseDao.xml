@@ -1,0 +1,299 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaishop.dao.ShopLicenseDao">
+
+    <resultMap type="com.example.waimaishop.entity.ShopLicense" id="ShopLicenseMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="shopId" column="shop_id" jdbcType="INTEGER"/>
+        <result property="idacrdName" column="idacrd_name" jdbcType="VARCHAR"/>
+        <result property="idcardNum" column="idcard_num" jdbcType="VARCHAR"/>
+        <result property="idcardImg" column="idcard_img" jdbcType="VARCHAR"/>
+        <result property="businessImg" column="business_img" jdbcType="VARCHAR"/>
+        <result property="businessNum" column="business_num" jdbcType="VARCHAR"/>
+        <result property="businessName" column="business_name" jdbcType="VARCHAR"/>
+        <result property="businessAddress" column="business_address" jdbcType="VARCHAR"/>
+        <result property="businessBegintime" column="business_begintime" jdbcType="TIMESTAMP"/>
+        <result property="businessEndtime" column="business_endtime" jdbcType="TIMESTAMP"/>
+        <result property="licenseImg" column="license_img" jdbcType="VARCHAR"/>
+        <result property="licenseNum" column="license_num" jdbcType="VARCHAR"/>
+        <result property="licenseAddress" column="license_address" jdbcType="VARCHAR"/>
+        <result property="licenseBegintime" column="license_begintime" jdbcType="TIMESTAMP"/>
+        <result property="licenseEndtime" column="license_endtime" jdbcType="TIMESTAMP"/>
+        <result property="status" column="status" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="ShopLicenseMap">
+        select id,
+               shop_id,
+               idacrd_name,
+               idcard_num,
+               idcard_img,
+               business_img,
+               business_num,
+               business_name,
+               business_address,
+               business_begintime,
+               business_endtime,
+               license_img,
+               license_num,
+               license_address,
+               license_begintime,
+               license_endtime,
+               status,
+               add_time
+        from shop_license
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="ShopLicenseMap">
+        select
+        id, shop_id, idacrd_name, idcard_num, idcard_img, business_img, business_num, business_name, business_address,
+        business_begintime, business_endtime, license_img, license_num, license_address, license_begintime,
+        license_endtime, status, add_time
+        from shop_license
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="idacrdName != null and idacrdName != ''">
+                and idacrd_name = #{idacrdName}
+            </if>
+            <if test="idcardNum != null and idcardNum != ''">
+                and idcard_num = #{idcardNum}
+            </if>
+            <if test="idcardImg != null and idcardImg != ''">
+                and idcard_img = #{idcardImg}
+            </if>
+            <if test="businessImg != null and businessImg != ''">
+                and business_img = #{businessImg}
+            </if>
+            <if test="businessNum != null and businessNum != ''">
+                and business_num = #{businessNum}
+            </if>
+            <if test="businessName != null and businessName != ''">
+                and business_name = #{businessName}
+            </if>
+            <if test="businessAddress != null and businessAddress != ''">
+                and business_address = #{businessAddress}
+            </if>
+            <if test="businessBegintime != null">
+                and business_begintime = #{businessBegintime}
+            </if>
+            <if test="businessEndtime != null">
+                and business_endtime = #{businessEndtime}
+            </if>
+            <if test="licenseImg != null and licenseImg != ''">
+                and license_img = #{licenseImg}
+            </if>
+            <if test="licenseNum != null and licenseNum != ''">
+                and license_num = #{licenseNum}
+            </if>
+            <if test="licenseAddress != null and licenseAddress != ''">
+                and license_address = #{licenseAddress}
+            </if>
+            <if test="licenseBegintime != null">
+                and license_begintime = #{licenseBegintime}
+            </if>
+            <if test="licenseEndtime != null">
+                and license_endtime = #{licenseEndtime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from shop_license
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="shopId != null">
+                and shop_id = #{shopId}
+            </if>
+            <if test="idacrdName != null and idacrdName != ''">
+                and idacrd_name = #{idacrdName}
+            </if>
+            <if test="idcardNum != null and idcardNum != ''">
+                and idcard_num = #{idcardNum}
+            </if>
+            <if test="idcardImg != null and idcardImg != ''">
+                and idcard_img = #{idcardImg}
+            </if>
+            <if test="businessImg != null and businessImg != ''">
+                and business_img = #{businessImg}
+            </if>
+            <if test="businessNum != null and businessNum != ''">
+                and business_num = #{businessNum}
+            </if>
+            <if test="businessName != null and businessName != ''">
+                and business_name = #{businessName}
+            </if>
+            <if test="businessAddress != null and businessAddress != ''">
+                and business_address = #{businessAddress}
+            </if>
+            <if test="businessBegintime != null">
+                and business_begintime = #{businessBegintime}
+            </if>
+            <if test="businessEndtime != null">
+                and business_endtime = #{businessEndtime}
+            </if>
+            <if test="licenseImg != null and licenseImg != ''">
+                and license_img = #{licenseImg}
+            </if>
+            <if test="licenseNum != null and licenseNum != ''">
+                and license_num = #{licenseNum}
+            </if>
+            <if test="licenseAddress != null and licenseAddress != ''">
+                and license_address = #{licenseAddress}
+            </if>
+            <if test="licenseBegintime != null">
+                and license_begintime = #{licenseBegintime}
+            </if>
+            <if test="licenseEndtime != null">
+                and license_endtime = #{licenseEndtime}
+            </if>
+            <if test="status != null">
+                and status = #{status}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into shop_license(shop_id, idacrd_name, idcard_num, idcard_img, business_img, business_num,
+                                 business_name, business_address, business_begintime, business_endtime, license_img,
+                                 license_num, license_address, license_begintime, license_endtime, status, add_time)
+        values (#{shopId}, #{idacrdName}, #{idcardNum}, #{idcardImg}, #{businessImg}, #{businessNum}, #{businessName},
+                #{businessAddress}, #{businessBegintime}, #{businessEndtime}, #{licenseImg}, #{licenseNum},
+                #{licenseAddress}, #{licenseBegintime}, #{licenseEndtime}, #{status}, #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shop_license(shop_id, idacrd_name, idcard_num, idcard_img, business_img, business_num,
+        business_name, business_address, business_begintime, business_endtime, license_img, license_num,
+        license_address, license_begintime, license_endtime, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.shopId}, #{entity.idacrdName}, #{entity.idcardNum}, #{entity.idcardImg}, #{entity.businessImg},
+            #{entity.businessNum}, #{entity.businessName}, #{entity.businessAddress}, #{entity.businessBegintime},
+            #{entity.businessEndtime}, #{entity.licenseImg}, #{entity.licenseNum}, #{entity.licenseAddress},
+            #{entity.licenseBegintime}, #{entity.licenseEndtime}, #{entity.status}, #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into shop_license(shop_id, idacrd_name, idcard_num, idcard_img, business_img, business_num,
+        business_name, business_address, business_begintime, business_endtime, license_img, license_num,
+        license_address, license_begintime, license_endtime, status, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.shopId}, #{entity.idacrdName}, #{entity.idcardNum}, #{entity.idcardImg}, #{entity.businessImg},
+            #{entity.businessNum}, #{entity.businessName}, #{entity.businessAddress}, #{entity.businessBegintime},
+            #{entity.businessEndtime}, #{entity.licenseImg}, #{entity.licenseNum}, #{entity.licenseAddress},
+            #{entity.licenseBegintime}, #{entity.licenseEndtime}, #{entity.status}, #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        shop_id = values(shop_id),
+        idacrd_name = values(idacrd_name),
+        idcard_num = values(idcard_num),
+        idcard_img = values(idcard_img),
+        business_img = values(business_img),
+        business_num = values(business_num),
+        business_name = values(business_name),
+        business_address = values(business_address),
+        business_begintime = values(business_begintime),
+        business_endtime = values(business_endtime),
+        license_img = values(license_img),
+        license_num = values(license_num),
+        license_address = values(license_address),
+        license_begintime = values(license_begintime),
+        license_endtime = values(license_endtime),
+        status = values(status),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update shop_license
+        <set>
+            <if test="shopId != null">
+                shop_id = #{shopId},
+            </if>
+            <if test="idacrdName != null and idacrdName != ''">
+                idacrd_name = #{idacrdName},
+            </if>
+            <if test="idcardNum != null and idcardNum != ''">
+                idcard_num = #{idcardNum},
+            </if>
+            <if test="idcardImg != null and idcardImg != ''">
+                idcard_img = #{idcardImg},
+            </if>
+            <if test="businessImg != null and businessImg != ''">
+                business_img = #{businessImg},
+            </if>
+            <if test="businessNum != null and businessNum != ''">
+                business_num = #{businessNum},
+            </if>
+            <if test="businessName != null and businessName != ''">
+                business_name = #{businessName},
+            </if>
+            <if test="businessAddress != null and businessAddress != ''">
+                business_address = #{businessAddress},
+            </if>
+            <if test="businessBegintime != null">
+                business_begintime = #{businessBegintime},
+            </if>
+            <if test="businessEndtime != null">
+                business_endtime = #{businessEndtime},
+            </if>
+            <if test="licenseImg != null and licenseImg != ''">
+                license_img = #{licenseImg},
+            </if>
+            <if test="licenseNum != null and licenseNum != ''">
+                license_num = #{licenseNum},
+            </if>
+            <if test="licenseAddress != null and licenseAddress != ''">
+                license_address = #{licenseAddress},
+            </if>
+            <if test="licenseBegintime != null">
+                license_begintime = #{licenseBegintime},
+            </if>
+            <if test="licenseEndtime != null">
+                license_endtime = #{licenseEndtime},
+            </if>
+            <if test="status != null">
+                status = #{status},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from shop_license
+        where id = #{id}
+    </delete>
+
+</mapper>
+

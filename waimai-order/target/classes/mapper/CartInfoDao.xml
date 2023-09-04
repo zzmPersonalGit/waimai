@@ -1,0 +1,147 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.example.waimaiorder.dao.CartInfoDao">
+
+    <resultMap type="com.example.waimaiorder.entity.CartInfo" id="CartInfoMap">
+        <result property="id" column="id" jdbcType="INTEGER"/>
+        <result property="cartId" column="cart_id" jdbcType="INTEGER"/>
+        <result property="foodId" column="food_id" jdbcType="INTEGER"/>
+        <result property="number" column="number" jdbcType="INTEGER"/>
+        <result property="addTime" column="add_time" jdbcType="TIMESTAMP"/>
+    </resultMap>
+
+    <!--查询单个-->
+    <select id="queryById" resultMap="CartInfoMap">
+        select id,
+               cart_id,
+               food_id,
+               number,
+               add_time
+        from cart_info
+        where id = #{id}
+    </select>
+
+    <!--查询指定行数据-->
+    <select id="queryAllByLimit" resultMap="CartInfoMap">
+        select
+        id, cart_id, food_id, number, add_time
+        from cart_info
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="cartId != null">
+                and cart_id = #{cartId}
+            </if>
+            <if test="foodId != null">
+                and food_id = #{foodId}
+            </if>
+            <if test="number != null">
+                and number = #{number}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+        limit #{pageable.offset}, #{pageable.pageSize}
+    </select>
+
+    <!--统计总行数-->
+    <select id="count" resultType="java.lang.Long">
+        select count(1)
+        from cart_info
+        <where>
+            <if test="id != null">
+                and id = #{id}
+            </if>
+            <if test="cartId != null">
+                and cart_id = #{cartId}
+            </if>
+            <if test="foodId != null">
+                and food_id = #{foodId}
+            </if>
+            <if test="number != null">
+                and number = #{number}
+            </if>
+            <if test="addTime != null">
+                and add_time = #{addTime}
+            </if>
+        </where>
+    </select>
+
+    <!--查询全部-->
+    <select id="queryAll" resultMap="CartInfoMap">
+        select id,
+               cart_id,
+               food_id,
+               number,
+               add_time
+        from cart_info
+    </select>
+    <select id="queryByCartIdAndFoodId" resultMap="CartInfoMap">
+        select id,
+               cart_id,
+               food_id,
+               number,
+               add_time
+        from cart_info
+        where cart_id = #{cartId}
+        and food_id = #{foodId}
+    </select>
+
+    <!--新增所有列-->
+    <insert id="insert" keyProperty="id" useGeneratedKeys="true">
+        insert into cart_info(cart_id, food_id, number, add_time)
+        values (#{cartId}, #{foodId}, #{number}, #{addTime})
+    </insert>
+
+    <insert id="insertBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into cart_info(cart_id, food_id, number, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.cartId}, #{entity.foodId}, #{entity.number}, #{entity.addTime})
+        </foreach>
+    </insert>
+
+    <insert id="insertOrUpdateBatch" keyProperty="id" useGeneratedKeys="true">
+        insert into cart_info(cart_id, food_id, number, add_time)
+        values
+        <foreach collection="entities" item="entity" separator=",">
+            (#{entity.cartId}, #{entity.foodId}, #{entity.number}, #{entity.addTime})
+        </foreach>
+        on duplicate key update
+        cart_id = values(cart_id),
+        food_id = values(food_id),
+        number = values(number),
+        add_time = values(add_time)
+    </insert>
+
+    <!--通过主键修改数据-->
+    <update id="update">
+        update cart_info
+        <set>
+            <if test="cartId != null">
+                cart_id = #{cartId},
+            </if>
+            <if test="foodId != null">
+                food_id = #{foodId},
+            </if>
+            <if test="number != null">
+                number = #{number},
+            </if>
+            <if test="addTime != null">
+                add_time = #{addTime},
+            </if>
+        </set>
+        where id = #{id}
+    </update>
+
+    <!--通过主键删除-->
+    <delete id="deleteById">
+        delete
+        from cart_info
+        where id = #{id}
+    </delete>
+
+</mapper>
+
